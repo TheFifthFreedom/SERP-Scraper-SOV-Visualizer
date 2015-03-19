@@ -12,8 +12,7 @@ import sys
 
 try:
     from selenium import webdriver
-    from selenium.common.exceptions import TimeoutException, WebDriverException
-    from selenium.common.exceptions import ElementNotVisibleException
+    from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.common.by import By
     from selenium.webdriver.support.ui import WebDriverWait  # available since 2.4.0
@@ -226,7 +225,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                     )
 
             dcap = dict(DesiredCapabilities.PHANTOMJS)
-            # dcap["phantomjs.page.settings.userAgent"] = random_user_agent()
+            dcap["phantomjs.page.settings.userAgent"] = random_user_agent()
 
             self.webdriver = webdriver.PhantomJS(service_args=service_args, desired_capabilities=dcap)
             return True
@@ -416,6 +415,14 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         except TimeoutException as e:
             out(SeleniumSearchError('{}: Keyword "{}" not found in title: {}'.format(self.name, self.query, self.webdriver.title)), lvl=4)
 
+    def fill_search_input(self):
+        self.search_input.clear()
+        time.sleep(.25)
+        self.search_input.send_keys(self.query)
+        time.sleep(.25)
+        self.autocomplete = self.webdriver.execute_script('return document.body.getElementsByClassName(\'sbsb_b\')')[0].text.replace('\n', '; ')
+        self.search_input.send_keys(Keys.ENTER)
+        self.requested_at = datetime.datetime.utcnow()
 
     def search(self):
         """Search with webdriver.
@@ -436,16 +443,17 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 self.search_input = self.handle_request_denied()
 
             if self.search_input:
-                self.search_input.clear()
-                time.sleep(.25)
-
                 try:
-                    self.search_input.send_keys(self.query + Keys.ENTER)
-                except ElementNotVisibleException as e:
-                    time.sleep(2)
-                    self.search_input.send_keys(self.query + Keys.ENTER)
-
-                self.requested_at = datetime.datetime.utcnow()
+                    self.fill_search_input()
+                except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e1:
+                    while True:
+                        try:
+                            self.build_search()
+                            self.search_input = self._wait_until_search_input_field_appears()
+                            self.fill_search_input()
+                            break
+                        except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e2:
+                            pass
             else:
                 out('{}: Cannot get handle to the input form for keyword {}.'.format(self.name, self.query), lvl=4)
                 continue
@@ -469,14 +477,14 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 if self.page_number in self.pages_per_keyword:
                     self.next_url = self._goto_next_page()
                     self.requested_at = datetime.datetime.utcnow()
-                    
+
                     if not self.next_url:
                         break
 
     def page_down(self):
         """Scrolls down a page with javascript.
 
-        Used for next page in image search mode or when the 
+        Used for next page in image search mode or when the
         next results are obtained by scrolling down a page.
         """
         js = '''
@@ -512,8 +520,8 @@ class SelScrape(SearchEngineScrape, threading.Thread):
 
         if self.webdriver:
             self.webdriver.close()
-            
-            
+
+
 """
 For most search engines, the normal SelScrape works perfectly, but sometimes
 the scraping logic is different for other search engines.
@@ -551,14 +559,14 @@ class DuckduckgoSelScrape(SelScrape):
     def _goto_next_page(self):
         super().page_down()
         return 'No more results' not in self.html
-    
+
     def wait_until_serp_loaded(self):
         super()._wait_until_search_input_field_contains_query()
 
 class BlekkoSelScrape(SelScrape):
     def __init__(self, *args, **kwargs):
         SelScrape.__init__(self, *args, **kwargs)
-        
+
     def _goto_next_page(self):
         pass
 
@@ -567,13 +575,12 @@ class AskSelScrape(SelScrape):
         SelScrape.__init__(self, *args, **kwargs)
 
     def wait_until_serp_loaded(self):
-        
+
         def wait_until_keyword_in_url(driver):
             try:
                 return quote(self.query) in driver.current_url or\
                        self.query.replace(' ', '+') in driver.current_url
             except WebDriverException as e:
                 pass
-            
-        WebDriverWait(self.webdriver, 5).until(wait_until_keyword_in_url)
 
+        WebDriverWait(self.webdriver, 5).until(wait_until_keyword_in_url)

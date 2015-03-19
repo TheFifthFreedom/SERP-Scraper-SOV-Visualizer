@@ -30,12 +30,12 @@ class Parser():
     """Parses SERP pages.
 
     Each search engine results page (SERP) has a similar layout:
-    
+
     The main search results are usually in a html container element (#main, .results, #leftSide).
-    There might be separate columns for other search results (like ads for example). Then each 
+    There might be separate columns for other search results (like ads for example). Then each
     result contains basically a link, a snippet and a description (usually some text on the
     target site). It's really astonishing how similar other search engines are to Google.
-    
+
     Each child class (that can actual parse a concrete search engine results page) needs
     to specify css selectors for the different search types (Like normal search, news search, video search, ...).
 
@@ -57,9 +57,60 @@ class Parser():
 
     # some search engine show on which page we currently are. If supportd, this selector will get this value.
     page_number_selectors = []
-    
+
     # The supported search types. For instance, Google supports Video Search, Image Search, News search
     search_types = []
+
+    # Autocorrect result selector
+    autocorrect_selector = []
+    autocorrect_forced_check_selector = []
+
+    # Map result selector
+    map_selector = []
+
+    # Image results selector
+    image_results_selector = []
+
+    # Image mega block selector
+    image_mega_block_selector = []
+
+    # Answer box selector
+    answer_box_selector = []
+    answer_box_multi_selector = []
+
+    # Knowledge Graph Thumbnail
+    knowledge_graph_box_selector = []
+
+    # Knowledge Graph Title
+    knowledge_graph_title_selector = []
+
+    # Knowledge Graph Google Review
+    knowledge_graph_google_star_rating_selector = []
+    knowledge_graph_google_star_rating_numbers_selector = []
+    knowledge_graph_google_star_rating_big_selector = []
+    knowledge_graph_google_star_rating_numbers_big_selector = []
+
+    # Knowledge Graph Subtitle
+    knowledge_graph_subtitle_selector = []
+    # Knowledge Graph location-specific Subtitle
+    knowledge_graph_location_subtitle_selector = []
+
+    # Knowledge Graph Snippet
+    knowledge_graph_snippet_selector = []
+    # Knowledge Graph location-specific Snippet
+    knowledge_graph_location_snippet_selector = []
+
+    # Knowledge Graph Google+ Recent Post
+    knowledge_graph_google_plus_recent_post_selector = []
+
+    # Knowledge Graph Map
+    knowledge_graph_map_selector = []
+
+    # Knowledge Graph Image Thumbnail
+    knowledge_graph_thumbnail_selector = []
+
+    # Knowledge Graph Google Images Scrapbook Selector
+    knowledge_graph_google_images_scrapbook_selector = []
 
     # Each subclass of Parser may declare an arbitrary amount of attributes that
     # follow a naming convention like this:
@@ -73,10 +124,10 @@ class Parser():
         """Create new Parser instance and parse all information.
 
         Args:
-            html: The raw html from the search engine search. If not provided, you can parse 
+            html: The raw html from the search engine search. If not provided, you can parse
                     the data later by calling parse(html) directly.
             searchtype: The search type. By default "normal"
-            
+
         Raises:
             Assertion error if the subclassed
             specific parser cannot handle the the settings.
@@ -93,28 +144,48 @@ class Parser():
         self.effective_query = ''
         self.page_number = -1
         self.no_results = False
+        self.autocorrect = None
+        self.autocorrect_forced_check = None
+        self.map_result = False
+        self.image_results = False
+        self.image_mega_block = False
+        self.answer_box = False
+        self.knowledge_graph_box = False
+        self.knowledge_graph_title = None
+        self.knowledge_graph_google_star_rating = None
+        self.knowledge_graph_google_star_rating_numbers = None
+        self.knowledge_graph_google_star_rating_big = None
+        self.knowledge_graph_google_star_rating_numbers_big = None
+        self.knowledge_graph_subtitle = None
+        self.knowledge_graph_location_subtitle = None
+        self.knowledge_graph_snippet = None
+        self.knowledge_graph_location_snippet = None
+        self.knowledge_graph_google_plus_recent_post = None
+        self.knowledge_graph_map = False
+        self.knowledge_graph_thumbnail = False
+        self.knowledge_graph_google_images_scrapbook = False
 
         # to be set by the implementing sub classes
         self.search_engine = ''
 
         # short alias because we use it so extensively
         self.css_to_xpath = HTMLTranslator().css_to_xpath
-        
+
         if self.html:
             self.parse()
-        
+
     def parse(self, html=None):
         """Public function to start parsing the search engine results.
-        
-        Args: 
+
+        Args:
             html: The raw html data to extract the SERP entries from.
         """
         if html:
             self.html = html
-        
+
         # lets do the actual parsing
         self._parse()
-        
+
         # Apply subclass specific behaviour after parsing has happened
         # This is needed because different parsers need to clean/modify
         # the parsed data uniquely.
@@ -133,11 +204,11 @@ class Parser():
 
     def _parse(self, cleaner=None):
         """Internal parse the dom according to the provided css selectors.
-        
+
         Raises: InvalidSearchTypeException if no css selectors for the searchtype could be found.
         """
         self._parse_lxml(cleaner)
-        
+
         # try to parse the number of results.
         attr_name = self.searchtype + '_search_selectors'
         selector_dict = getattr(self, attr_name, None)
@@ -162,6 +233,41 @@ class Parser():
 
         # the element that notifies the user about no results.
         self.no_results_text = self.first_match(self.no_results_selector, self.dom)
+
+        # check for autocorrect results
+        if self.first_match(self.autocorrect_selector, self.dom) != '' and self.first_match(self.autocorrect_selector, self.dom) != False:
+            self.autocorrect = self.first_match(self.autocorrect_selector, self.dom)
+        if self.first_match(self.autocorrect_forced_check_selector, self.dom) != '' and self.first_match(self.autocorrect_forced_check_selector, self.dom) != False:
+            self.autocorrect_forced_check = self.first_match(self.autocorrect_forced_check_selector, self.dom)
+
+        # check for a map result
+        if self.first_match(self.map_selector, self.dom) != False:
+            self.map_result = True
+
+        # check for image results
+        if self.first_match(self.image_mega_block_selector, self.dom) != False:
+            self.image_mega_block = True
+        elif self.first_match(self.image_results_selector, self.dom) != False:
+            self.image_results = True
+
+        # check for answer box
+        if self.first_match(self.answer_box_selector, self.dom) != False or self.first_match(self.answer_box_multi_selector, self.dom) != False:
+            self.answer_box = True
+
+        self.knowledge_graph_box = (True if self.first_match(self.knowledge_graph_box_selector, self.dom) != False else False)
+        self.knowledge_graph_title = self.first_match(self.knowledge_graph_title_selector, self.dom)
+        self.knowledge_graph_google_star_rating = (self.first_match(self.knowledge_graph_google_star_rating_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_selector, self.dom) != False else None)
+        self.knowledge_graph_google_star_rating_numbers = (self.first_match(self.knowledge_graph_google_star_rating_numbers_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_numbers_selector, self.dom) != False else None)
+        self.knowledge_graph_google_star_rating_big = (self.first_match(self.knowledge_graph_google_star_rating_big_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_big_selector, self.dom) != False else None)
+        self.knowledge_graph_google_star_rating_numbers_big = (self.first_match(self.knowledge_graph_google_star_rating_numbers_big_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_numbers_big_selector, self.dom) != False else None)
+        self.knowledge_graph_subtitle = (self.first_match(self.knowledge_graph_subtitle_selector, self.dom) if self.first_match(self.knowledge_graph_subtitle_selector, self.dom) != False else None)
+        self.knowledge_graph_location_subtitle = (self.first_match(self.knowledge_graph_location_subtitle_selector, self.dom) if self.first_match(self.knowledge_graph_location_subtitle_selector, self.dom) != False else None)
+        self.knowledge_graph_snippet = (self.first_match(self.knowledge_graph_snippet_selector, self.dom) if self.first_match(self.knowledge_graph_snippet_selector, self.dom) != False else None)
+        self.knowledge_graph_location_snippet = (self.first_match(self.knowledge_graph_location_snippet_selector, self.dom) if self.first_match(self.knowledge_graph_location_snippet_selector, self.dom) != False else None)
+        self.knowledge_graph_google_plus_recent_post = (self.first_match(self.knowledge_graph_google_plus_recent_post_selector, self.dom) if self.first_match(self.knowledge_graph_google_plus_recent_post_selector, self.dom) != False else None)
+        self.knowledge_graph_map = (True if self.first_match(self.knowledge_graph_map_selector, self.dom) != False else False)
+        self.knowledge_graph_thumbnail = (True if self.first_match(self.knowledge_graph_thumbnail_selector, self.dom) != False else False)
+        self.knowledge_graph_google_images_scrapbook = (True if self.first_match(self.knowledge_graph_google_images_scrapbook_selector, self.dom) != False else False)
 
         # get the stuff that is of interest in SERP pages.
         if not selector_dict and not isinstance(selector_dict, dict):
@@ -204,8 +310,26 @@ class Parser():
 
                     # only add items that have not None links.
                     # Avoid duplicates. Detect them by the link.
-                    # If statement below: Lazy evaluation. The more probable case first.
-                    if 'link' in serp_result and serp_result['link'] and \
+                    # Except for local pack results - detect those by their address
+                    # If statements below: Lazy evaluation. The more probable case first.
+                    if result_type == 'local_pack_results' and 'address' in serp_result and serp_result['address'] and \
+                            not [e for e in self.search_results[result_type] if e['address'] == serp_result['address']]:
+                        self.search_results[result_type].append(serp_result)
+                        self.num_results += 1
+
+                    elif result_type == 'knowledge_graph_trivia' and 'title' in serp_result and serp_result['title'] and \
+                            not [e for e in self.search_results[result_type] if e['title'] == serp_result['title']]:
+                        self.search_results[result_type].append(serp_result)
+
+                    elif result_type == 'knowledge_graph_trivia' and 'link_title' in serp_result and serp_result['link_title'] and \
+                            not [e for e in self.search_results[result_type] if e['link_title'] == serp_result['link_title']]:
+                        self.search_results[result_type].append(serp_result)
+
+                    elif result_type == 'knowledge_graph_trivia' and 'hours_title' in serp_result and serp_result['hours_title'] and \
+                            not [e for e in self.search_results[result_type] if e['hours_title'] == serp_result['hours_title']]:
+                        self.search_results[result_type].append(serp_result)
+
+                    elif 'link' in serp_result and serp_result['link'] and \
                             not [e for e in self.search_results[result_type] if e['link'] == serp_result['link']]:
                         self.search_results[result_type].append(serp_result)
                         self.num_results += 1
@@ -240,7 +364,7 @@ class Parser():
                     pass
             else:
                 try:
-                    value = element.xpath(self.css_to_xpath(selector))[0].text_content()
+                    value = element.xpath(self.css_to_xpath(selector))[0]
                 except IndexError as e:
                     pass
 
@@ -263,7 +387,7 @@ class Parser():
             if selector:
                 try:
                     match = self.advanced_css(selector, element=element)
-                    if match:
+                    if match is not None:
                         return match
                 except IndexError as e:
                     pass
@@ -272,11 +396,11 @@ class Parser():
 
     def after_parsing(self):
         """Subclass specific behaviour after parsing happened.
-        
+
         Override in subclass to add search engine specific behaviour.
         Commonly used to clean the results.
         """
-                
+
     def __str__(self):
         """Return a nicely formatted overview of the results."""
         return pprint.pformat(self.search_results)
@@ -305,7 +429,7 @@ class Parser():
                         yield (key, i)
 
 """
-Here follow the different classes that provide CSS selectors 
+Here follow the different classes that provide CSS selectors
 for different types of SERP pages of several common search engines.
 
 Just look at them and add your own selectors in a new class if you
@@ -334,66 +458,459 @@ class GoogleParser(Parser):
     """Parses SERP pages of the Google search engine."""
 
     search_engine = 'google'
-    
+
     search_types = ['normal', 'image']
 
     effective_query_selector = ['#topstuff .med > b::text']
 
     no_results_selector = []
 
-    num_results_search_selectors = ['#resultStats']
+    num_results_search_selectors = ['#resultStats::text']
 
     page_number_selectors = ['#navcnt td.cur::text']
-    
+
+    autocorrect_selector = ['div.med a.spell::text']
+    autocorrect_forced_check_selector = ['div.med a.spell_orig::text']
+
+    map_selector = ['div._LPe.rhsvw._CC']
+
+    image_results_selector = ['#imagebox_bigimages']
+
+    image_mega_block_selector = ['ul.rg_ul > li._ZGc.bili.uh_r.rg_el:nth-child(9)']
+
+    answer_box_selector = ['#center_col li.g.mnr-c.g-blk']
+    answer_box_multi_selector = ['div.rl_container']
+
+    knowledge_graph_box_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk']
+
+    knowledge_graph_title_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div.kno-ecr-pt.kno-fb-ctx::text']
+
+    knowledge_graph_google_star_rating_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._j3d span.rtng::text']
+    knowledge_graph_google_star_rating_numbers_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._j3d a.fl::text']
+    knowledge_graph_google_star_rating_big_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._i3d span.rtng::text']
+    knowledge_graph_google_star_rating_numbers_big_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._i3d a.fl::text']
+
+    knowledge_graph_subtitle_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._gdf.kno-fb-ctx::text']
+    knowledge_graph_location_subtitle_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._mr._Wfc.vk_gy::text']
+
+    knowledge_graph_snippet_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div.kno-rdesc > span:first-child::text']
+    knowledge_graph_location_snippet_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk span._N1d::text']
+
+    knowledge_graph_google_plus_recent_post_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._b4 div.s > div:last-child::text']
+
+    knowledge_graph_map_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk #lu_map']
+
+    knowledge_graph_thumbnail_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk img.iuth']
+
+    knowledge_graph_google_images_scrapbook_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._iH']
+
     normal_search_selectors = {
-        'results': {
+        'organic_results': {
             'us_ip': {
                 'container': '#center_col',
-                'result_container': 'li.g ',
+                'result_container': 'li.g:not(li.g.card-section):not(li.g.no-sep):not(li#imagebox_bigimages.g):not(li.g.mnr-c.g-blk)',
                 'link': 'h3.r > a:first-child::attr(href)',
                 'snippet': 'div.s span.st::text',
                 'title': 'h3.r > a:first-child::text',
-                'visible_link': 'cite::text'
+                'visible_link': 'cite::text',
+                'google_star_rating': '#lclbox span.rtng::text',
+                'google_star_rating_reviews' : '#lclbox > a.fl > span::text',
+                'address': '#lclbox table.ts.intrlu > tbody > tr > td:last-child::text',
+                'search_bar': '#nqsbq',
+                'schema_enhanced_listing': 'div.s div.f.slp::text',
+                'image_thumbnail': 'div.s div.th._lyb',
+                'video_thumbnail': 'div.s div.th._lyb._YQd',
+                'small_sitelink_1': 'div.osl > a.fl:nth-child(1)::text',
+                'small_sitelink_2': 'div.osl > a.fl:nth-child(2)::text',
+                'small_sitelink_3': 'div.osl > a.fl:nth-child(3)::text',
+                'small_sitelink_4': 'div.osl > a.fl:nth-child(4)::text',
+                'small_sitelink_5': 'div.osl > a.fl:nth-child(5)::text',
+                'small_sitelink_6': 'div.osl > a.fl:nth-child(6)::text',
+                'big_sitelink_1': 'tbody > tr.mslg._Amc > td:first-child h3.r > a.l::text',
+                'big_sitelink_1_description': 'tbody > tr.mslg._Amc > td:first-child div.st::text',
+                'big_sitelink_2': 'tbody > tr.mslg._Amc > td:last-child h3.r > a.l::text',
+                'big_sitelink_2_description': 'tbody > tr.mslg._Amc > td:last-child div.st::text',
+                'big_sitelink_3': 'tbody > tr.mslg._Amc + tr.mslg > td:first-child h3.r > a.l::text',
+                'big_sitelink_3_description': 'tbody > tr.mslg._Amc + tr.mslg > td:first-child div.st::text',
+                'big_sitelink_4': 'tbody > tr.mslg._Amc + tr.mslg > td:last-child h3.r > a.l::text',
+                'big_sitelink_4_description': 'tbody > tr.mslg._Amc + tr.mslg > td:last-child div.st::text',
+                'big_sitelink_5': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:first-child h3.r > a.l::text',
+                'big_sitelink_5_description': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:first-child div.st::text',
+                'big_sitelink_6': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:last-child h3.r > a.l::text',
+                'big_sitelink_6_description': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:last-child div.st::text'
             },
             'de_ip': {
                 'container': '#center_col',
-                'result_container': 'li.g ',
+                'result_container': 'li.g:not(li.g.card-section):not(li.g.no-sep):not(li#imagebox_bigimages.g):not(li.g.mnr-c.g-blk)',
                 'link': 'h3.r > a:first-child::attr(href)',
                 'snippet': 'div.s span.st::text',
                 'title': 'h3.r > a:first-child::text',
-                'visible_link': 'cite::text'
-            },
-            'de_ip_news_items': {
-                'container': 'li.card-section',
-                'link': 'a._Dk::attr(href)',
-                'snippet': 'span._dwd::text',
-                'title': 'a._Dk::text',
-                'visible_link': 'cite::text'
-            },
-        },
-        'ads_main': {
-            'us_ip': {
-                'container': '#center_col',
-                'result_container': 'li.ads-ad',
-                'link': 'h3.r > a:first-child::attr(href)',
-                'snippet': 'div.s span.st::text',
-                'title': 'h3.r > a:first-child::text',
-                'visible_link': '.ads-visurl cite::text',
-            },
-            'de_ip': {
-                'container': '#center_col',
-                'result_container': '.ads-ad',
-                'link': 'h3 > a:first-child::attr(href)',
-                'snippet': '.ads-creative::text',
-                'title': 'h3 > a:first-child::text',
-                'visible_link': '.ads-visurl cite::text',
+                'visible_link': 'cite::text',
+                'google_star_rating': '#lclbox span.rtng::text',
+                'google_star_rating_reviews' : '#lclbox > a.fl > span::text',
+                'address': '#lclbox table.ts.intrlu > tbody > tr > td:last-child::text',
+                'search_bar': '#nqsbq',
+                'schema_enhanced_listing': 'div.s div.f.slp::text',
+                'image_thumbnail': 'div.s div.th._lyb',
+                'video_thumbnail': 'div.s div.th._lyb._YQd',
+                'small_sitelink_1': 'div.osl > a.fl:nth-child(1)::text',
+                'small_sitelink_2': 'div.osl > a.fl:nth-child(2)::text',
+                'small_sitelink_3': 'div.osl > a.fl:nth-child(3)::text',
+                'small_sitelink_4': 'div.osl > a.fl:nth-child(4)::text',
+                'small_sitelink_5': 'div.osl > a.fl:nth-child(5)::text',
+                'small_sitelink_6': 'div.osl > a.fl:nth-child(6)::text',
+                'big_sitelink_1': 'tbody > tr.mslg._Amc > td:first-child h3.r > a.l::text',
+                'big_sitelink_1_description': 'tbody > tr.mslg._Amc > td:first-child div.st::text',
+                'big_sitelink_2': 'tbody > tr.mslg._Amc > td:last-child h3.r > a.l::text',
+                'big_sitelink_2_description': 'tbody > tr.mslg._Amc > td:last-child div.st::text',
+                'big_sitelink_3': 'tbody > tr.mslg._Amc + tr.mslg > td:first-child h3.r > a.l::text',
+                'big_sitelink_3_description': 'tbody > tr.mslg._Amc + tr.mslg > td:first-child div.st::text',
+                'big_sitelink_4': 'tbody > tr.mslg._Amc + tr.mslg > td:last-child h3.r > a.l::text',
+                'big_sitelink_4_description': 'tbody > tr.mslg._Amc + tr.mslg > td:last-child div.st::text',
+                'big_sitelink_5': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:first-child h3.r > a.l::text',
+                'big_sitelink_5_description': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:first-child div.st::text',
+                'big_sitelink_6': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:last-child h3.r > a.l::text',
+                'big_sitelink_6_description': 'tbody > tr.mslg._Amc + tr.mslg + tr.mslg > td:last-child div.st::text'
             }
         },
-        'ads_aside': {
-
+        'paid_results': {
+            'us_ip': {
+                'container': 'li.ads-ad',
+                'link': 'h3 > a+a:first-child::attr(href)',
+                'snippet': '.ads-creative::text',
+                'title': 'h3 > a+a:first-child::text',
+                'visible_link': '.ads-visurl cite::text',
+                'google_star_rating': 'span._uEc::text',
+                'address': 'div._wnd > div._H2b:last-child > a._vnd::text',
+                'phone_number': 'div._wnd > div._H2b:last-child > div._K2b > span._xnd::text',
+                'small_sitelink_1': 'ul:last-child > li:nth-child(1) > a::text',
+                'small_sitelink_2': 'ul:last-child > li:nth-child(2) > a::text',
+                'small_sitelink_3': 'ul:last-child > li:nth-child(3) > a::text',
+                'small_sitelink_4': 'ul:last-child > li:nth-child(4) > a::text',
+                'small_sitelink_5': 'ul:last-child > li:nth-child(5) > a::text',
+                'small_sitelink_6': 'ul:last-child > li:nth-child(6) > a::text',
+                'big_sitelink_1': 'ul:last-child > li:nth-child(1) > h3 > a::text',
+                'big_sitelink_1_description': 'ul:last-child > li:nth-child(1) > div.ads-creative.ac::text',
+                'big_sitelink_2': 'ul:last-child > li:nth-child(2) > h3 > a::text',
+                'big_sitelink_2_description': 'ul:last-child > li:nth-child(2) > div.ads-creative.ac::text',
+                'big_sitelink_3': 'ul:last-child > li:nth-child(3) > h3 > a::text',
+                'big_sitelink_3_description': 'ul:last-child > li:nth-child(3) > div.ads-creative.ac::text',
+                'big_sitelink_4': 'ul:last-child > li:nth-child(4) > h3 > a::text',
+                'big_sitelink_4_description': 'ul:last-child > li:nth-child(4) > div.ads-creative.ac::text',
+                'big_sitelink_5': 'ul:last-child > li:nth-child(5) > h3 > a::text',
+                'big_sitelink_5_description': 'ul:last-child > li:nth-child(5) > div.ads-creative.ac::text',
+                'big_sitelink_6': 'ul:last-child > li:nth-child(6) > h3 > a::text',
+                'big_sitelink_6_description': 'ul:last-child > li:nth-child(6) > div.ads-creative.ac::text'
+            },
+            'de_ip': {
+                'container': 'li.ads-ad',
+                'link': 'h3 > a+a:first-child::attr(href)',
+                'snippet': '.ads-creative::text',
+                'title': 'h3 > a+a:first-child::text',
+                'visible_link': '.ads-visurl cite::text',
+                'google_star_rating': 'span._uEc::text',
+                'address': 'div._wnd > div._H2b:last-child > a._vnd::text',
+                'phone_number': 'div._wnd > div._H2b:last-child > div._K2b > span._xnd::text',
+                'small_sitelink_1': 'ul:last-child > li:nth-child(1) > a::text',
+                'small_sitelink_2': 'ul:last-child > li:nth-child(2) > a::text',
+                'small_sitelink_3': 'ul:last-child > li:nth-child(3) > a::text',
+                'small_sitelink_4': 'ul:last-child > li:nth-child(4) > a::text',
+                'small_sitelink_5': 'ul:last-child > li:nth-child(5) > a::text',
+                'small_sitelink_6': 'ul:last-child > li:nth-child(6) > a::text',
+                'big_sitelink_1': 'ul:last-child > li:nth-child(1) > h3 > a::text',
+                'big_sitelink_1_description': 'ul:last-child > li:nth-child(1) > div.ads-creative.ac::text',
+                'big_sitelink_2': 'ul:last-child > li:nth-child(2) > h3 > a::text',
+                'big_sitelink_2_description': 'ul:last-child > li:nth-child(2) > div.ads-creative.ac::text',
+                'big_sitelink_3': 'ul:last-child > li:nth-child(3) > h3 > a::text',
+                'big_sitelink_3_description': 'ul:last-child > li:nth-child(3) > div.ads-creative.ac::text',
+                'big_sitelink_4': 'ul:last-child > li:nth-child(4) > h3 > a::text',
+                'big_sitelink_4_description': 'ul:last-child > li:nth-child(4) > div.ads-creative.ac::text',
+                'big_sitelink_5': 'ul:last-child > li:nth-child(5) > h3 > a::text',
+                'big_sitelink_5_description': 'ul:last-child > li:nth-child(5) > div.ads-creative.ac::text',
+                'big_sitelink_6': 'ul:last-child > li:nth-child(6) > h3 > a::text',
+                'big_sitelink_6_description': 'ul:last-child > li:nth-child(6) > div.ads-creative.ac::text'
+            }
+        },
+        'shopping_results (left)': {
+            'us_ip': {
+                'container': 'div.c.commercial-unit.commercial-unit-desktop-top',
+                'result_container': 'div.pla-unit',
+                'link': 'div._vT > a:first-child::attr(href)',
+                'title': 'div._vT > a:first-child::text',
+                'price': 'div._QD::text',
+                'image_thumbnail': 'span._qYc',
+                'visible_link': 'div._mC > span.a::text'
+            },
+            'de_ip': {
+                'container': 'div.c.commercial-unit.commercial-unit-desktop-top',
+                'result_container': 'div.pla-unit',
+                'link': 'div._vT > a:first-child::attr(href)',
+                'title': 'div._vT > a:first-child::text',
+                'price': 'div._QD::text',
+                'image_thumbnail': 'span._qYc',
+                'visible_link': 'div._mC > span.a::text'
+            }
+        },
+        'shopping_results (right)': {
+            'us_ip': {
+                'container': 'div.c.commercial-unit.commercial-unit-desktop-rhs.rhsvw',
+                'result_container': 'div.pla-unit',
+                'link': 'div._vT > a:first-child::attr(href)',
+                'title': 'div._vT > a:first-child > span.rhsg4::text',
+                'price': 'div._QD::text',
+                'image_thumbnail': 'span._qYc',
+                'visible_link': 'div._mC > span.rhsg4.a::text'
+            },
+            'de_ip': {
+                'container': 'div.c.commercial-unit.commercial-unit-desktop-rhs.rhsvw',
+                'result_container': 'div.pla-unit',
+                'link': 'div._vT > a:first-child::attr(href)',
+                'title': 'div._vT > a:first-child > span.rhsg4::text',
+                'price': 'div._QD::text',
+                'image_thumbnail': 'span._qYc',
+                'visible_link': 'div._mC > span.rhsg4.a::text'
+            }
+        },
+        'news_results': {
+            'us_ip': {
+                'container': 'div.mnr-c._yE',
+                'result_container': 'li.g',
+                'link': 'a._Dk::attr(href)',
+                'snippet': 'span._dwd.st.s.std::text',
+                'title': 'a._Dk::text',
+                'image_thumbnail': 'div._K2._SYd',
+                'visible_link': 'cite::text'
+            },
+            'de_ip': {
+                'container': 'div.mnr-c._yE',
+                'result_container': 'li.g',
+                'link': 'a._Dk::attr(href)',
+                'snippet': 'span._dwd.st.s.std::text',
+                'title': 'a._Dk::text',
+                'image_thumbnail': 'div._K2._SYd',
+                'visible_link': 'cite::text'
+            }
+        },
+        'in_depth_articles': {
+            'us_ip': {
+                'container': '#center_col',
+                'result_container': 'li.g.card-section:not(li.card-section._df.g._mZd):not(li.g._Nn._wbb.card-section):not(li.g._Nn._Abb.card-section)',
+                'link': 'h3.r > a:first-child::attr(href)',
+                'snippet': 'div.s span.st::text',
+                'title': 'h3.r > a:first-child::text',
+                'image_thumbnail': 'div.th._lyb',
+                'visible_link': 'cite::text',
+            },
+            'de_ip': {
+                'container': '#center_col',
+                'result_container': 'li.g.card-section:not(li.card-section._df.g._mZd):not(li.g._Nn._wbb.card-section):not(li.g._Nn._Abb.card-section)',
+                'link': 'h3.r > a:first-child::attr(href)',
+                'snippet': 'div.s span.st::text',
+                'title': 'h3.r > a:first-child::text',
+                'image_thumbnail': 'div.th._lyb',
+                'visible_link': 'cite::text',
+            }
+        },
+        'local_carousel': {
+            'us_ip': {
+                'container': '#extabar',
+                'result_container': 'li',
+                'link': 'a:first-child::attr(href)',
+                'title': 'a:first-child::attr(title)',
+                'image_thumbnail': 'div.klic'
+            },
+            'de_ip': {
+                'container': '#extabar',
+                'result_container': 'li',
+                'link': 'a:first-child::attr(href)',
+                'title': 'a:first-child::attr(title)',
+                'image_thumbnail': 'div.klic'
+            }
+        },
+        'local_pack_results': {
+            'us_ip': {
+                'container': 'li.g.no-sep',
+                'result_container': 'div.intrlu',
+                'link': 'h3.r > a:first-child::attr(href)',
+                'title': 'h3.r > a:first-child::text',
+                'visible_link': 'cite::text',
+                'google_star_rating': 'span.rtng::text',
+                'google_star_rating_reviews': 'a.fl::text',
+                'address': 'div.g > div:last-child::text'
+            },
+            'de_ip': {
+                'container': 'li.g.no-sep',
+                'result_container': 'div.intrlu',
+                'link': 'h3.r > a:first-child::attr(href)',
+                'title': 'h3.r > a:first-child::text',
+                'visible_link': 'cite::text',
+                'google_star_rating': 'span.rtng::text',
+                'google_star_rating_reviews': 'a.fl::text',
+                'address': 'div.g > div:last-child::text'
+            }
+        },
+        'list_carousel': {
+            'us_ip': {
+                'container': 'div._oL',
+                'result_container': 'div._gt',
+                'link': 'a:first-child::attr(href)',
+                'snippet': 'span._ucf::text',
+                'title': 'div._rl::text',
+                'google_star_rating': 'span.rtng::text',
+                'google_star_rating_reviews': 'span._Mnc.vk_lt::text',
+                'schema_enhanced_listing': 'div._CRe > div::text',
+                'price': 'div._Nl::text',
+                'image_thumbnail': 'div._li'
+            },
+            'de_ip': {
+                'container': 'div._oL',
+                'result_container': 'div._gt',
+                'link': 'a:first-child::attr(href)',
+                'snippet': 'span._ucf::text',
+                'title': 'div._rl::text',
+                'google_star_rating': 'span.rtng::text',
+                'google_star_rating_reviews': 'span._Mnc.vk_lt::text',
+                'schema_enhanced_listing': 'div._CRe > div::text',
+                'price': 'div._Nl::text',
+                'image_thumbnail': 'div._li'
+            }
+        },
+        'related_searches': {
+            'us_ip': {
+                'container': '#extrares',
+                'result_container': 'p._e4b',
+                'keyword': 'a:first-child::text',
+                'link': 'a:first-child::attr(href)'
+            },
+            'de_ip': {
+                'container': '#extrares',
+                'result_container': 'p._e4b',
+                'keyword': 'a:first-child::text',
+                'link': 'a:first-child::attr(href)'
+            }
+        },
+        'disambiguation_box': {
+            'us_ip': {
+                'container': 'div._OKe',
+                'result_container': 'li.fwm._NXc._DJe.mod',
+                'keyword': 'div._Z3 > div._Qqb._tX.ellip::text',
+                'link': 'div.kno-fb-ctx > a:first-child::attr(href)',
+                'snippet': 'div._Z3 > div._Adb > span.rhsg4::text',
+                'snippet[0][0]': 'div._Z3 > div._Adb > div._mr.ellip:first-child > span:first-child::text',
+                'snippet[0][1]': 'div._Z3 > div._Adb > div._mr.ellip:first-child > span:last-child::text',
+                'snippet[1][0]': 'div._Z3 > div._Adb > div._mr.ellip:last-child > span:first-child::text',
+                'snippet[1][1]': 'div._Z3 > div._Adb > div._mr.ellip:last-child > span:last-child::text'
+            },
+            'de_ip': {
+                'container': 'div._OKe',
+                'result_container': 'li.fwm._NXc._DJe.mod',
+                'keyword': 'div._Z3 > div._Qqb._tX.ellip::text',
+                'link': 'div.kno-fb-ctx > a:first-child::attr(href)',
+                'snippet': 'div._Z3 > div._Adb > span.rhsg4::text',
+                'snippet[0][0]': 'div._Z3 > div._Adb > div._mr.ellip:first-child > span:first-child::text',
+                'snippet[0][1]': 'div._Z3 > div._Adb > div._mr.ellip:first-child > span:last-child::text',
+                'snippet[1][0]': 'div._Z3 > div._Adb > div._mr.ellip:last-child > span:first-child::text',
+                'snippet[1][1]': 'div._Z3 > div._Adb > div._mr.ellip:last-child > span:last-child::text'
+            }
+        },
+        'knowledge_graph_trivia': {
+            'us_ip': {
+                'container': 'div._mr',
+                'title': 'span:first-child::text',
+                'link_title': 'a.fl:first-child::text',
+                'fact': 'span:last-child::text',
+                'link_fact': 'a.fl:last-child::text',
+                'hours_title': 'div.lud-hourslabel::text',
+                'hours_status': 'span._CK::text',
+                'hours_status_grayscale': 'span._bC::text',
+                'hours_morning': 'a.fl > span:first-child::text',
+                'hours_afternoon': 'a.fl > span:last-child::text',
+                'link': 'a.fl::attr(href)'
+            },
+            'de_ip': {
+                'container': 'div._mr',
+                'title': 'span:first-child::text',
+                'link_title': 'a.fl:first-child::text',
+                'fact': 'span:last-child::text',
+                'link_fact': 'a.fl:last-child::text',
+                'hours_title': 'div.lud-hourslabel::text',
+                'hours_status': 'span._CK::text',
+                'hours_status_grayscale': 'span._bC::text',
+                'hours_morning': 'a.fl > span:first-child::text',
+                'hours_afternoon': 'a.fl > span:last-child::text',
+                'link': 'a.fl::attr(href)'
+            }
+        },
+        'knowledge_graph_social_profiles': {
+            'us_ip': {
+                'container': 'ul._Ugf',
+                'result_container': 'li.kno-vrt-t.kno-fb-ctx',
+                'profile': 'a.fl::text',
+                'link': 'a.fl::attr(href)'
+            },
+            'de_ip': {
+                'container': 'ul._Ugf',
+                'result_container': 'li.kno-vrt-t.kno-fb-ctx',
+                'profile': 'a.fl::text',
+                'link': 'a.fl::attr(href)'
+            }
+        },
+        'knowledge_graph_google_plus_reviews': {
+            'us_ip': {
+                'container': 'div._PJb',
+                'review': 'div._RJb::text',
+                'link': 'img._NJb::attr(src)'
+            },
+            'de_ip': {
+                'container': 'div._PJb',
+                'review': 'div._RJb::text',
+                'link': 'img._NJb::attr(src)'
+            }
+        },
+        'knowledge_graph_features': {
+            'us_ip': {
+                'container': '#rhs li.g.mnr-c.rhsvw.g-blk',
+                'institution': 'span._mP::text',
+                'feature': '#pl_ffl > a.fl::text',
+                'link': '#pl_ffl > a.fl::attr(href)'
+            },
+            'de_ip': {
+                'container': '#rhs li.g.mnr-c.rhsvw.g-blk',
+                'institution': 'span._mP::text',
+                'feature': '#pl_ffl > a.fl::text',
+                'link': '#pl_ffl > a.fl::attr(href)'
+            }
+        },
+        'knowledge_graph_people_also_search_for': {
+            'us_ip': {
+                'container': 'div._c4',
+                'result_container': 'div.kno-fb-ctx.kno-vrt-t',
+                'keyword': 'a.fl.ellip._Wqb::text',
+                'link': 'a.fl.ellip._Wqb::attr(href)'
+            },
+            'de_ip': {
+                'container': 'div._c4',
+                'result_container': 'div.kno-fb-ctx.kno-vrt-t',
+                'keyword': 'a.fl.ellip._Wqb::text',
+                'link': 'a.fl.ellip._Wqb::attr(href)'
+            }
+        },
+        'knowledge_graph_slideshows': {
+            'us_ip': {
+                'container': '#rhs li.g.mnr-c.rhsvw.g-blk',
+                'result_container': 'div.thumb',
+                'slideshow': 'span.cptn::text',
+                'link': 'a::attr(href)'
+            },
+            'de_ip': {
+                'container': '#rhs li.g.mnr-c.rhsvw.g-blk',
+                'result_container': 'div.thumb',
+                'slideshow': 'span.cptn::text',
+                'link': 'a::attr(href)'
+            }
         }
     }
-    
+
     image_search_selectors = {
         'results': {
             'de_ip': {
@@ -409,17 +926,17 @@ class GoogleParser(Parser):
             }
         }
     }
-    
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
     def after_parsing(self):
         """Clean the urls.
-        
+
         A typical scraped results looks like the following:
-        
+
         '/url?q=http://www.youtube.com/user/Apple&sa=U&ei=lntiVN7JDsTfPZCMgKAO&ved=0CFQQFjAO&usg=AFQjCNGkX65O-hKLmyq1FX9HQqbb9iYn9A'
-        
+
         Clean with a short regex.
         """
         super().after_parsing()
@@ -470,6 +987,47 @@ class YandexParser(Parser):
     num_results_search_selectors = ['.serp-adv .serp-item__wrap > strong']
 
     page_number_selectors = ['.pager__group .button_checked_yes span::text']
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -534,23 +1092,64 @@ class YandexParser(Parser):
                     if result:
                         self.search_results[key][i]['link'] = result.group('url')
                         break
-    
-    
+
+
 class BingParser(Parser):
     """Parses SERP pages of the Bing search engine."""
 
     search_engine = 'bing'
-    
+
     search_types = ['normal', 'image']
 
     no_results_selector = ['#b_results > .b_ans::text']
-    
+
     num_results_search_selectors = ['.sb_count']
 
     effective_query_selector = ['#sp_requery a > strong']
 
     page_number_selectors = ['.sb_pagS::text']
-    
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
     normal_search_selectors = {
         'results': {
             'us_ip': {
@@ -655,7 +1254,48 @@ class YahooParser(Parser):
     num_results_search_selectors = ['#pg > span:last-child']
 
     page_number_selectors = ['#pg > strong::text']
-    
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
     normal_search_selectors = {
         'results': {
             'de_ip': {
@@ -726,9 +1366,9 @@ class BaiduParser(Parser):
     """Parses SERP pages of the Baidu search engine."""
 
     search_engine = 'baidu'
-    
+
     search_types = ['normal', 'image']
-    
+
     num_results_search_selectors = ['#container .nums']
 
     no_results_selector = []
@@ -737,6 +1377,47 @@ class BaiduParser(Parser):
     effective_query_selector = ['']
 
     page_number_selectors = ['.fk_cur + .pc::text']
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -802,9 +1483,9 @@ class DuckduckgoParser(Parser):
     """Parses SERP pages of the Duckduckgo search engine."""
 
     search_engine = 'duckduckgo'
-    
+
     search_types = ['normal']
-    
+
     num_results_search_selectors = []
 
     no_results_selector = []
@@ -813,7 +1494,48 @@ class DuckduckgoParser(Parser):
 
     # duckduckgo is loads next pages with ajax
     page_number_selectors = ['']
-    
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
     normal_search_selectors = {
         'results': {
             'de_ip': {
@@ -863,6 +1585,47 @@ class AskParser(Parser):
 
     page_number_selectors = ['.pgcsel .pg::text']
 
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
     normal_search_selectors = {
         'results': {
             'de_ip': {
@@ -889,6 +1652,47 @@ class BlekkoParser(Parser):
     no_results_selector = []
 
     num_results_search_selectors = []
+
+    autocorrect_selector = [] #TO DO
+    autocorrect_forced_check_selector = [] #TO DO
+
+    map_selector = [] #TO DO
+
+    image_results_selector = [] #TO DO
+
+    image_mega_block_selector = [] #TO DO
+
+    answer_box_selector = [] #TO DO
+
+    answer_box_multi_selector = [] #TO DO
+
+    knowledge_graph_box_selector = [] #TO DO
+
+    knowledge_graph_title_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_big_selector = [] #TO DO
+
+    knowledge_graph_google_star_rating_numbers_big_selector = [] #TO DO
+
+    knowledge_graph_subtitle_selector = [] #TO DO
+
+    knowledge_graph_location_subtitle_selector = [] #TO DO
+
+    knowledge_graph_snippet_selector = [] #TO DO
+
+    knowledge_graph_location_snippet_selector = [] #TO DO
+
+    knowledge_graph_google_plus_recent_post_selector = [] #TO DO
+
+    knowledge_graph_map_selector = [] #TO DO
+
+    knowledge_graph_thumbnail_selector = [] #TO DO
+
+    knowledge_graph_google_images_scrapbook_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1008,12 +1812,12 @@ def parse_serp(html=None, parser=None, scraper=None, search_engine=None, query='
 
 if __name__ == '__main__':
     """Originally part of https://github.com/NikolaiT/GoogleScraper.
-    
-    Only for testing purposes: May be called directly with an search engine 
+
+    Only for testing purposes: May be called directly with an search engine
     search url. For example:
-    
+
     python3 parsing.py 'http://yandex.ru/yandsearch?text=GoogleScraper&lr=178&csg=82%2C4317%2C20%2C20%2C0%2C0%2C0'
-    
+
     Please note: Using this module directly makes little sense, because requesting such urls
     directly without imitating a real browser (which is done in my GoogleScraper module) makes
     the search engines return crippled html, which makes it impossible to parse.
@@ -1032,6 +1836,6 @@ if __name__ == '__main__':
     parser = parser(raw_html)
     parser.parse()
     print(parser)
-    
+
     with open('/tmp/testhtml.html', 'w') as of:
         of.write(raw_html)

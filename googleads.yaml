@@ -1,0 +1,29 @@
+adwords:
+  developer_token: MGL5vYpMVs_1UoD-UaJdzw
+  user_agent: sapient.com:SearchOfVoice:V1.0
+  client_id: 265510223171-baq3hfme128s788jqutqkeeeknvcvi85.apps.googleusercontent.com
+  client_secret: BSwO7TET7AmMsrk1SjlqelMt
+  refresh_token: 1/sIjC90YoxKAo11wK0CmTB3xYR5DuGx-Zgn-lDH4IlmIMEudVrK5jSpoR30zcRFq6
+# The following values are optional:
+  client_customer_id: 123-740-7572
+#  partial_failure: True
+#  validate_only: True
+#  https_proxy: INSERT_PROXY_URL_HERE:PORT
+
+dfp:
+  application_name: INSERT_APPLICATION_NAME_HERE
+  client_id: INSERT_OAUTH_2_CLIENT_ID_HERE
+  client_secret: INSERT_CLIENT_SECRET_HERE
+  refresh_token: INSERT_REFRESH_TOKEN_HERE
+# The following values are optional:
+#  network_code: INSERT_NETWORK_CODE_HERE
+#  https_proxy: INSERT_PROXY_URL_HERE:PORT
+
+dfa:
+  username: INSERT_DFA_USERNAME_HERE
+  application_name: INSERT_APPLICATION_NAME_HERE
+  client_id: INSERT_OAUTH_2_CLIENT_ID_HERE
+  client_secret: INSERT_CLIENT_SECRET_HERE
+  refresh_token: INSERT_REFRESH_TOKEN_HERE
+# The following values are optional:
+#  https_proxy: INSERT_PROXY_URL_HERE:PORT

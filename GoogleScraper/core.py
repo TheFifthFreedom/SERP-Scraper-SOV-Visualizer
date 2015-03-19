@@ -7,8 +7,10 @@ import hashlib
 import os
 import logging
 import queue
+import math
+import re
 from GoogleScraper.commandline import get_command_line
-from GoogleScraper.database import ScraperSearch, SERP, Link, get_session, fixtures
+from GoogleScraper.database import ScraperSearch, SERP, Link, get_session, fixtures, set_values_from_adwords
 from GoogleScraper.proxies import parse_proxy_file, get_proxies_from_mysql_db, add_proxies_to_db
 from GoogleScraper.caching import fix_broken_cache_names, _caching_is_one_to_one, parse_all_cached_files, clean_cachefiles
 from GoogleScraper.config import InvalidConfigurationException, parse_cmd_args, Config, update_config_with_file
@@ -17,6 +19,7 @@ from GoogleScraper.scrape_jobs import default_scrape_jobs_for_keywords
 from GoogleScraper.scraping import ScrapeWorkerFactory, GoogleSearchError
 from GoogleScraper.output_converter import init_outfile
 from GoogleScraper.async_mode import AsyncScrapeScheduler
+from GoogleScraper.adwords import get_traffic
 import GoogleScraper.config
 
 logger = logging.getLogger('GoogleScraper')
@@ -119,6 +122,8 @@ class ShowProgressQueue(threading.Thread):
         self.num_already_processed = 0
         self.verbosity = Config['GLOBAL'].getint('verbosity', 1)
         self.progress_fmt = '\033[92m{}/{} keywords processed.\033[0m'
+        self.adwords_done = False
+        self.progress_adwords = '\033[94mQuerying AdWords API for traffic numbers.\033[0m'
 
     def run(self):
         while self.num_already_processed < self.num_keywords:
@@ -135,6 +140,9 @@ class ShowProgressQueue(threading.Thread):
                 print(self.progress_fmt.format(self.num_already_processed, self.num_keywords))
 
             self.queue.task_done()
+
+        while not self.adwords_done:
+            print (self.progress_adwords, end='\r')
 
 
 def main(return_results=False, parse_cmd_line=True):
@@ -185,7 +193,7 @@ def main(return_results=False, parse_cmd_line=True):
         kwfile = os.path.abspath(kwfile)
 
     keyword = Config['SCRAPING'].get('keyword')
-    keywords = {keyword for keyword in set(Config['SCRAPING'].get('keywords', []).split('\n')) if keyword}
+    keywords = {re.sub(' +',' ', re.sub('[^\x00-\x7F]+',' ', keyword.lower())).strip() for keyword in set(Config['SCRAPING'].get('keywords', []).split('\n')) if keyword}
     proxy_file = Config['GLOBAL'].get('proxy_file', '')
     proxy_db = Config['GLOBAL'].get('mysql_proxy_db', '')
 
@@ -245,7 +253,14 @@ def main(return_results=False, parse_cmd_line=True):
                     logger.warning(e)
             else:
                 # Clean the keywords of duplicates right in the beginning
-                keywords = set([line.strip() for line in open(kwfile, 'r').read().split('\n') if line.strip()])
+                keywords = set([re.sub(' +',' ', re.sub('[^\x00-\x7F]+',' ', line.lower())).strip() for line in open(kwfile, 'r').read().split('\n') if line.strip()])
+
+    # Arrange keyword set to minimize number of AdWords queries for traffic numbers
+    maxKeywordsPerQuery = 800
+    keywords_list = list(keywords)
+    numberOfQueries = math.ceil(len(keywords_list) / maxKeywordsPerQuery)
+    keywords_adwords = [ keywords_list[i*maxKeywordsPerQuery: (i+1)*maxKeywordsPerQuery]
+             for i in range(numberOfQueries) ]
 
     if not scrape_jobs:
         scrape_jobs = default_scrape_jobs_for_keywords(keywords, search_engines, scrape_method, pages)
@@ -271,7 +286,7 @@ def main(return_results=False, parse_cmd_line=True):
 
     if Config['SCRAPING'].getboolean('use_own_ip'):
         proxies.append(None)
-        
+
     if not proxies:
         raise InvalidConfigurationException('No proxies available and using own IP is prohibited by configuration. Turning down.')
 
@@ -298,7 +313,7 @@ def main(return_results=False, parse_cmd_line=True):
     # get a scoped sqlalchemy session
     Session = get_session(scoped=False)
     session = Session()
-    
+
     # add fixtures
     fixtures(session)
 
@@ -367,24 +382,23 @@ def main(return_results=False, parse_cmd_line=True):
             num_worker = 0
             for search_engine in search_engines:
 
-                for proxy in proxies:
-
-                    for worker in range(num_workers):
-                        num_worker += 1
-                        workers.put(
-                            ScrapeWorkerFactory(
-                                mode=method,
-                                proxy=proxy,
-                                search_engine=search_engine,
-                                session=session,
-                                db_lock=db_lock,
-                                cache_lock=cache_lock,
-                                scraper_search=scraper_search,
-                                captcha_lock=captcha_lock,
-                                progress_queue=q,
-                                browser_num=num_worker
-                            )
+                for worker in range(num_workers):
+                    num_worker += 1
+                    proxy_to_use = proxies[worker % len(proxies)]
+                    workers.put(
+                        ScrapeWorkerFactory(
+                            mode=method,
+                            proxy=proxy_to_use,
+                            search_engine=search_engine,
+                            session=session,
+                            db_lock=db_lock,
+                            cache_lock=cache_lock,
+                            scraper_search=scraper_search,
+                            captcha_lock=captcha_lock,
+                            progress_queue=q,
+                            browser_num=num_worker
                         )
+                    )
 
             for job in scrape_jobs:
 
@@ -422,6 +436,15 @@ def main(return_results=False, parse_cmd_line=True):
         else:
             raise InvalidConfigurationException('No such scrape_method {}'.format(Config['SCRAPING'].get('scrape_method')))
 
+        # Once keywords have been scraped, query AdWords API for traffic numbers
+        keywords_traffic = {}
+        for keyword_set in keywords_adwords:
+            if not keywords_traffic:
+                keywords_traffic = get_traffic(keyword_set).copy()
+            else:
+                keywords_traffic.update(get_traffic(keyword_set))
+        set_values_from_adwords(session, keywords_traffic)
+        progress_thread.adwords_done = True
 
         if method in ('selenium', 'http'):
             progress_thread.join()

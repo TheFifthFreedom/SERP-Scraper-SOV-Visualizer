@@ -96,30 +96,30 @@ def get_base_search_url_by_search_engine(search_engine_name, search_mode):
 
 class SearchEngineScrape(metaclass=abc.ABCMeta):
     """Abstract base class that represents a search engine scrape.
-    
-    Each subclass that derives from SearchEngineScrape needs to 
-    implement some common functionality like setting a proxy, 
+
+    Each subclass that derives from SearchEngineScrape needs to
+    implement some common functionality like setting a proxy,
     returning the found results, caching results and pushing scraped
     data to a storage like a database or an output file.
-    
+
     The derivation is divided in two hierarchies: First we divide child
-    classes in different Transport mechanisms. Scraping can happen over 
+    classes in different Transport mechanisms. Scraping can happen over
     different communication channels like Raw HTTP, scraping with the
     selenium framework or using the an asynchronous HTTP client.
-    
+
     The next layer is the concrete implementation of the search functionality
     of the specific search engines. This is not done in a extra derivation
     hierarchy (otherwise there would be a lot of base classes for each
-    search engine and thus quite some boilerplate overhead), 
+    search engine and thus quite some boilerplate overhead),
     instead we determine our search engine over the internal state
     (An attribute name self.search_engine) and handle the different search
     engines in the search function.
-    
+
     Each mode must behave similarly: It can only scape one search engine at the same time,
     but it may search for multiple search keywords. The initial start number may be
     set by the configuration. The number of pages that should be scraped for each
     keyword is also configurable.
-    
+
     It may be possible to apply all the above rules dynamically for each
     search query. This means that the search page offset, the number of
     consecutive search pages may be provided for all keywords uniquely instead
@@ -246,6 +246,8 @@ class SearchEngineScrape(metaclass=abc.ABCMeta):
         self.status = 'successful'
 
         self.html = ''
+
+        self.autocomplete = ''
 
 
     @abc.abstractmethod
