@@ -419,8 +419,9 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         self.search_input.clear()
         time.sleep(.25)
         self.search_input.send_keys(self.query)
-        time.sleep(.25)
-        self.autocomplete = self.webdriver.execute_script('return document.body.getElementsByClassName(\'sbsb_b\')')[0].text.replace('\n', '; ')
+        time.sleep(1)
+        autocomplete = self.webdriver.execute_script('return document.body.getElementsByClassName(\'sbsb_b\')')
+        self.autocomplete = (autocomplete[0].text.replace('\n', '; ') if autocomplete != [] else None)
         self.search_input.send_keys(Keys.ENTER)
         self.requested_at = datetime.datetime.utcnow()
 

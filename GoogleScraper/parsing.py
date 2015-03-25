@@ -77,9 +77,7 @@ class Parser():
     # Answer box selector
     answer_box_selector = []
     answer_box_multi_selector = []
-
-    # Knowledge Graph Thumbnail
-    knowledge_graph_box_selector = []
+    answer_box_google_flight_selector = []
 
     # Knowledge Graph Title
     knowledge_graph_title_selector = []
@@ -111,6 +109,9 @@ class Parser():
 
     # Knowledge Graph Google Images Scrapbook Selector
     knowledge_graph_google_images_scrapbook_selector = []
+
+    # Knowledge Graph Ad Selector
+    knowledge_graph_ad_selector = []
 
     # Each subclass of Parser may declare an arbitrary amount of attributes that
     # follow a naming convention like this:
@@ -164,6 +165,7 @@ class Parser():
         self.knowledge_graph_map = False
         self.knowledge_graph_thumbnail = False
         self.knowledge_graph_google_images_scrapbook = False
+        self.knowledge_graph_ad = False
 
         # to be set by the implementing sub classes
         self.search_engine = ''
@@ -251,10 +253,10 @@ class Parser():
             self.image_results = True
 
         # check for answer box
-        if self.first_match(self.answer_box_selector, self.dom) != False or self.first_match(self.answer_box_multi_selector, self.dom) != False:
+        if self.first_match(self.answer_box_selector, self.dom) != False or self.first_match(self.answer_box_multi_selector, self.dom) != False or self.first_match(self.answer_box_google_flight_selector, self.dom) != False:
             self.answer_box = True
 
-        self.knowledge_graph_box = (True if self.first_match(self.knowledge_graph_box_selector, self.dom) != False else False)
+        self.knowledge_graph_box = (True if self.first_match(self.knowledge_graph_title_selector, self.dom) != False else False)
         self.knowledge_graph_title = self.first_match(self.knowledge_graph_title_selector, self.dom)
         self.knowledge_graph_google_star_rating = (self.first_match(self.knowledge_graph_google_star_rating_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_selector, self.dom) != False else None)
         self.knowledge_graph_google_star_rating_numbers = (self.first_match(self.knowledge_graph_google_star_rating_numbers_selector, self.dom) if self.first_match(self.knowledge_graph_google_star_rating_numbers_selector, self.dom) != False else None)
@@ -268,6 +270,7 @@ class Parser():
         self.knowledge_graph_map = (True if self.first_match(self.knowledge_graph_map_selector, self.dom) != False else False)
         self.knowledge_graph_thumbnail = (True if self.first_match(self.knowledge_graph_thumbnail_selector, self.dom) != False else False)
         self.knowledge_graph_google_images_scrapbook = (True if self.first_match(self.knowledge_graph_google_images_scrapbook_selector, self.dom) != False else False)
+        self.knowledge_graph_ad = (True if self.first_match(self.knowledge_graph_ad_selector, self.dom) != False else False)
 
         # get the stuff that is of interest in SERP pages.
         if not selector_dict and not isinstance(selector_dict, dict):
@@ -480,8 +483,7 @@ class GoogleParser(Parser):
 
     answer_box_selector = ['#center_col li.g.mnr-c.g-blk']
     answer_box_multi_selector = ['div.rl_container']
-
-    knowledge_graph_box_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk']
+    answer_box_google_flight_selector = ['li.g.no-sep.tpo']
 
     knowledge_graph_title_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div.kno-ecr-pt.kno-fb-ctx::text']
 
@@ -503,6 +505,8 @@ class GoogleParser(Parser):
     knowledge_graph_thumbnail_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk img.iuth']
 
     knowledge_graph_google_images_scrapbook_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk div._iH']
+
+    knowledge_graph_ad_selector = ['#rhs li.g.mnr-c.rhsvw.g-blk span._mB']
 
     normal_search_selectors = {
         'organic_results': {
@@ -1001,7 +1005,7 @@ class YandexParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1028,6 +1032,8 @@ class YandexParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1120,9 +1126,9 @@ class BingParser(Parser):
 
     answer_box_selector = [] #TO DO
 
-    answer_box_multi_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_multi_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1149,6 +1155,8 @@ class BingParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1268,7 +1276,7 @@ class YahooParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1295,6 +1303,8 @@ class YahooParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1391,7 +1401,7 @@ class BaiduParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1418,6 +1428,8 @@ class BaiduParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1508,7 +1520,7 @@ class DuckduckgoParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1535,6 +1547,8 @@ class DuckduckgoParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1598,7 +1612,7 @@ class AskParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1625,6 +1639,8 @@ class AskParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {
@@ -1666,7 +1682,7 @@ class BlekkoParser(Parser):
 
     answer_box_multi_selector = [] #TO DO
 
-    knowledge_graph_box_selector = [] #TO DO
+    answer_box_google_flight_selector = [] #TO DO
 
     knowledge_graph_title_selector = [] #TO DO
 
@@ -1693,6 +1709,8 @@ class BlekkoParser(Parser):
     knowledge_graph_thumbnail_selector = [] #TO DO
 
     knowledge_graph_google_images_scrapbook_selector = [] #TO DO
+
+    knowledge_graph_ad_selector = [] #TO DO
 
     normal_search_selectors = {
         'results': {

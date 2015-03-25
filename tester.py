@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-
+from GoogleScraper.semantic_mapping import generate_map
 from GoogleScraper import scrape_with_config, GoogleSearchError
 
 if __name__ == '__main__':
@@ -8,7 +8,7 @@ if __name__ == '__main__':
     config = {
         'SCRAPING': {
             'use_own_ip': 'True',
-            'keywords': 'cheese',
+            'keywords': 'electric toothbrush',
             'search_engines': 'google',
             'num_workers': 1
         },
@@ -16,7 +16,7 @@ if __name__ == '__main__':
             'sel_browser': 'chrome',
         },
         'GLOBAL': {
-            'do_caching': 'False'
+            'do_caching': 'False',
         },
         'OUTPUT': {
             'database_name': 'scraping_results'
@@ -24,6 +24,7 @@ if __name__ == '__main__':
     }
 
     try:
-        sqlalchemy_session = scrape_with_config(config)
+        #sqlalchemy_session = scrape_with_config(config)
+        generate_map(config)
     except GoogleSearchError as e:
         print(e)

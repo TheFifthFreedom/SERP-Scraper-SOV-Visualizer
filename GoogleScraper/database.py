@@ -211,8 +211,10 @@ class SearchEngineResultsPage(Base):
                     elif (key == 'disambiguation_box'):
                         if (link['snippet'] is not None):
                             disambiguation_results.append(link['keyword'] + ' - ' + link['snippet'])
-                        elif (link['snippet[0][0]'] is not None and link['snippet[0][1]'] is not None and link['snippet[1][0]'] is not None and link['snippet[1][1]'] is not None):
+                        elif (link['snippet[0][0]'] is not None and link['snippet[0][1]'] is not None and link['snippet[1][0]'] is not None and link['snippet[1][1]'] is not None and link['snippet[0][1]'] != link['snippet[1][1]']):
                             disambiguation_results.append(link['keyword'] + ' - ' + link['snippet[0][0]'] + link['snippet[0][1]'] + ' ' + link['snippet[1][0]'] + link['snippet[1][1]'])
+                        elif (link['snippet[0][0]'] is not None and link['snippet[0][1]'] is not None):
+                            disambiguation_results.append(link['keyword'] + ' - ' + link['snippet[0][0]'] + link['snippet[0][1]'])
                         else:
                             disambiguation_results.append(link['keyword'])
 
@@ -362,6 +364,7 @@ class SearchEngineResultsPage(Base):
                 thumbnail=parser.knowledge_graph_thumbnail,
                 slideshows=knowledge_graph_slideshows,
                 google_images_scrapbook=parser.knowledge_graph_google_images_scrapbook,
+                ad=parser.knowledge_graph_ad,
                 serp=self
             )
 
@@ -385,7 +388,7 @@ class SearchEngineResultsPage(Base):
         self.requested_at = scraper.requested_at
         self.requested_by = scraper.requested_by
         self.status = scraper.status
-        self.autocomplete_results = scraper.autocomplete
+        self.autocomplete_results = (scraper.autocomplete if scraper.autocomplete is not None else None)
 
     def was_correctly_requested(self):
         return self.status == 'successful'
@@ -446,6 +449,7 @@ class KnowledgeGraph(Base):
     thumbnail = Column(Boolean)
     slideshows = Column(String)
     google_images_scrapbook = Column(Boolean)
+    ad = Column(Boolean)
     serp_id = Column(Integer, ForeignKey('serp.id'))
     serp = relationship(SearchEngineResultsPage, backref=backref('knowledge_graph', uselist=False))
 
