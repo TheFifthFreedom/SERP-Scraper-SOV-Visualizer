@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+from GoogleScraper.adwords import get_traffic
 from GoogleScraper.semantic_mapping import generate_map
 from GoogleScraper import scrape_with_config, GoogleSearchError
 
@@ -25,6 +26,6 @@ if __name__ == '__main__':
 
     try:
         #sqlalchemy_session = scrape_with_config(config)
-        generate_map(config)
+        print (generate_map(config))
     except GoogleSearchError as e:
         print(e)

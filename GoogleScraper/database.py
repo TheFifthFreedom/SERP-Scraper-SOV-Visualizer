@@ -17,7 +17,7 @@ can be assigned to more than one ScraperSearch. Therefore we need a n:m relation
 import datetime
 from GoogleScraper.config import Config
 from urllib.parse import urlparse
-from sqlalchemy import Column, String, Integer, ForeignKey, Table, DateTime, Enum, Boolean, desc
+from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table, DateTime, Enum, Boolean, desc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy import create_engine, UniqueConstraint
@@ -114,13 +114,13 @@ class SearchEngineResultsPage(Base):
     autocomplete_results = Column(String)
 
     # Average Monthly Search Volume
-    average_monthly_search_volume = Column(String)
+    average_monthly_search_volume = Column(Integer)
 
     # CPC
-    average_cpc = Column(String)
+    average_cpc = Column(Float)
 
     # Competition
-    competition = Column(String)
+    competition = Column(Float)
 
     # Monthly Search Volumes
     monthly_search_volumes = Column(String)
