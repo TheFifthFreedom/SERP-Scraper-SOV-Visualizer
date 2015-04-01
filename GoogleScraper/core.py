@@ -453,6 +453,8 @@ def main(return_results=False, parse_cmd_line=True):
             scheduler.run()
 
         else:
+            raise InvalidConfigurationException('No such scrape_method {}'.format(Config['SCRAPING'].get('scrape_method')))
+            
         # Once keywords have been scraped, query AdWords API for traffic numbers
         keywords_traffic = {}
         for keyword_set in keywords_adwords:

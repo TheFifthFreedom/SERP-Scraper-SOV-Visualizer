@@ -28,7 +28,6 @@ def generate_map(config):
 
         for keyword in keywords:
             children = []
-
             serp_id = sqlalchemy_session.query(SearchEngineResultsPage.id).filter(SearchEngineResultsPage.query == keyword).order_by(desc(SearchEngineResultsPage.id)).first()[0]
             related_searches = sqlalchemy_session.query(SearchEngineResultsPage.related_searches).filter(SearchEngineResultsPage.query == keyword).order_by(desc(SearchEngineResultsPage.id)).first()[0]
             disambiguation_results = sqlalchemy_session.query(SearchEngineResultsPage.disambiguation_results).filter(SearchEngineResultsPage.query == keyword).order_by(desc(SearchEngineResultsPage.id)).first()[0]

@@ -464,11 +464,36 @@ class SelScrape(SearchEngineScrape, threading.Thread):
     def wait_until_title_contains_keyword(self):
         try:
             WebDriverWait(self.webdriver, 5).until(EC.title_contains(self.query))
+        except TimeoutException:
+            out(SeleniumSearchError(
+                '{}: Keyword "{}" not found in title: {}'.format(self.name, self.query, self.webdriver.title)), lvl=4)
 
     # Used for brute force input method
     def fill_search_input(self):
         self.search_input.clear()
         time.sleep(.25)
+
+        self.search_param_fields = self._get_search_param_fields()
+        if self.search_param_fields:
+            wait_res = self._wait_until_search_param_fields_appears()
+            if wait_res is False:
+                raise Exception('Waiting search param input fields time exceeds')
+            for param, field in self.search_param_fields.items():
+                if field[0] == By.ID:
+                    js_tpl = '''
+                    var field = document.getElementById("%s");
+                    field.setAttribute("value", "%s");
+                    '''
+                elif field[0] == By.NAME:
+                    js_tpl = '''
+                    var fields = document.getElementsByName("%s");
+                    for (var f in fields) {
+                        f.setAttribute("value", "%s");
+                    }
+                    '''
+                js_str = js_tpl % (field[1], self.search_param_values[param])
+                self.webdriver.execute_script(js_str)
+
         self.search_input.send_keys(self.query)
         time.sleep(1)
         autocomplete = self.webdriver.execute_script('return document.body.getElementsByClassName(\'sbsb_b\')')
@@ -496,53 +521,17 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 self.search_input = self.handle_request_denied()
 
             if self.search_input:
-
-                # Brute force input method
-                # try:
-                #     self.fill_search_input()
-                # except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e1:
-                #     while True:
-                #         try:
-                #             self.build_search()
-                #             self.search_input = self._wait_until_search_input_field_appears()
-                #             self.fill_search_input()
-                #             break
-                #         except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e2:
-                #             pass
-
-                # Alternate method using Javascript code injection
-                self.search_input.clear()
-                time.sleep(.25)
-
-                self.search_param_fields = self._get_search_param_fields()
-
-                if self.search_param_fields:
-                    wait_res = self._wait_until_search_param_fields_appears()
-                    if wait_res is False:
-                        raise Exception('Waiting search param input fields time exceeds')
-                    for param, field in self.search_param_fields.items():
-                        if field[0] == By.ID:
-                            js_tpl = '''
-                            var field = document.getElementById("%s");
-                            field.setAttribute("value", "%s");
-                            '''
-                        elif field[0] == By.NAME:
-                            js_tpl = '''
-                            var fields = document.getElementsByName("%s");
-                            for (var f in fields) {
-                                f.setAttribute("value", "%s");
-                            }
-                            '''
-                        js_str = js_tpl % (field[1], self.search_param_values[param])
-                        self.webdriver.execute_script(js_str)
-
                 try:
-                    self.search_input.send_keys(self.query + Keys.ENTER)
-                except ElementNotVisibleException:
-                    time.sleep(2)
-                    self.search_input.send_keys(self.query + Keys.ENTER)
-
-                self.requested_at = datetime.datetime.utcnow()
+                    self.fill_search_input()
+                except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e1:
+                    while True:
+                        try:
+                            self.build_search()
+                            self.search_input = self._wait_until_search_input_field_appears()
+                            self.fill_search_input()
+                            break
+                        except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e2:
+                            pass
             else:
                 out('{}: Cannot get handle to the input form for keyword {}.'.format(self.name, self.query), lvl=4)
                 continue
