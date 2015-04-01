@@ -27,9 +27,9 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 
 scraper_searches_serps = Table('scraper_searches_serps', Base.metadata,
-    Column('scraper_search_id', Integer, ForeignKey('scraper_search.id')),
-    Column('serp_id', Integer, ForeignKey('serp.id'))
-)
+                               Column('scraper_search_id', Integer, ForeignKey('scraper_search.id')),
+                               Column('serp_id', Integer, ForeignKey('serp.id')))
+
 
 class ScraperSearch(Base):
     __tablename__ = 'scraper_search'
@@ -50,10 +50,12 @@ class ScraperSearch(Base):
     )
 
     def __str__(self):
-        return '<ScraperSearch[{id}] scraped for {number_search_queries} unique keywords. Started scraping: {started_searching} and stopped: {stopped_searching}>'.format(**self.__dict__)
+        return '<ScraperSearch[{id}] scraped for {number_search_queries} unique keywords. Started scraping: {started_' \
+               'searching} and stopped: {stopped_searching}>'.format(**self.__dict__)
 
     def __repr__(self):
         return self.__str__()
+
 
 class SearchEngineResultsPage(Base):
     __tablename__ = 'serp'
@@ -126,14 +128,14 @@ class SearchEngineResultsPage(Base):
     monthly_search_volumes = Column(String)
 
     def __str__(self):
-        return '<SERP[{search_engine_name}] has [{num_results}] link results for query "{query}">'.format(**self.__dict__)
+        return '<SERP[{search_engine_name}] has [{num_results}] link results for query "{query}">'.format(
+            **self.__dict__)
 
     def __repr__(self):
         return self.__str__()
 
     def has_no_results_for_query(self):
         return self.num_results == 0 or self.effective_query
-
 
     def set_values_from_parser(self, parser):
         """Populate itself from a parser object.
@@ -397,8 +399,9 @@ class SearchEngineResultsPage(Base):
 # Alias as a shorthand for working in the shell
 SERP = SearchEngineResultsPage
 
+
 class Link(Base):
-    __tablename__= 'link'
+    __tablename__ = 'link'
 
     id = Column(Integer, primary_key=True)
     title = Column(String)
@@ -454,7 +457,7 @@ class KnowledgeGraph(Base):
     serp = relationship(SearchEngineResultsPage, backref=backref('knowledge_graph', uselist=False))
 
 class Proxy(Base):
-    __tablename__= 'proxy'
+    __tablename__ = 'proxy'
 
     id = Column(Integer, primary_key=True)
     ip = Column(String)
@@ -483,6 +486,7 @@ class Proxy(Base):
 
     def __repr__(self):
         return self.__str__()
+
 
 db_Proxy = Proxy
 
@@ -554,7 +558,6 @@ def fixtures(session):
             search_engine = session.query(SearchEngine).filter(SearchEngine.name == se).first()
             if not search_engine:
                 session.add(SearchEngine(name=se))
-
     session.commit()
 
 def set_values_from_adwords(session, traffic):

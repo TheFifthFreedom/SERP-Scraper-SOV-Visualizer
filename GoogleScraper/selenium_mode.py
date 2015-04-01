@@ -9,6 +9,7 @@ import time
 import math
 import re
 import sys
+import os
 
 try:
     from selenium import webdriver
@@ -24,8 +25,8 @@ except ImportError as ie:
 
 from GoogleScraper.config import Config
 from GoogleScraper.log import out, raise_or_log
-from GoogleScraper.scraping import SearchEngineScrape, SeleniumSearchError, SeleniumMisconfigurationError, get_base_search_url_by_search_engine, MaliciousRequestDetected
-from GoogleScraper.user_agents import random_user_agent
+from GoogleScraper.scraping import SearchEngineScrape, SeleniumSearchError, SeleniumMisconfigurationError, \
+    get_base_search_url_by_search_engine, MaliciousRequestDetected
 
 logger = logging.getLogger('GoogleScraper')
 
@@ -60,7 +61,9 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         'baidu': '.n',
         'ask': '#paging div a.txt3.l_nu',
         'blekko': '',
-        'duckduckgo': ''
+        'duckduckgo': '',
+        'googleimg': '#pnnext',
+        'baiduimg': '.n',
     }
 
     input_field_selectors = {
@@ -72,6 +75,23 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         'duckduckgo': (By.NAME, 'q'),
         'ask': (By.NAME, 'q'),
         'blekko': (By.NAME, 'q'),
+        'google': (By.NAME, 'q'),
+        'googleimg': (By.NAME, 'as_q'),
+        'baiduimg': (By.NAME, 'word'),
+    }
+
+    param_field_selectors = {
+        'googleimg': {
+            'image_type': (By.ID, 'imgtype_input'),
+            'image_size': (By.ID, 'imgsz_input'),
+        },
+    }
+
+    search_params = {
+        'googleimg': {
+            'image_type': None,
+            'image_size': None,
+        },
     }
 
     normal_search_locations = {
@@ -82,7 +102,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         'baidu': 'http://baidu.com/',
         'duckduckgo': 'https://duckduckgo.com/',
         'ask': 'http://ask.com/',
-        'blekko': 'http://blekko.com/'
+        'blekko': 'http://blekko.com/',
     }
 
     image_search_locations = {
@@ -91,9 +111,11 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         'bing': 'https://www.bing.com/?scope=images',
         'yahoo': 'http://images.yahoo.com/',
         'baidu': 'http://image.baidu.com/',
-        'duckduckgo': None, # duckduckgo doesnt't support direct image search
+        'duckduckgo': None,  # duckduckgo doesnt't support direct image search
         'ask': 'http://www.ask.com/pictures/',
         'blekko': None,
+        'googleimg':'https://www.google.com/advanced_image_search',
+        'baiduimg': 'http://image.baidu.com/',
     }
 
     def __init__(self, *args, captcha_lock=None, browser_num=1, **kwargs):
@@ -114,6 +136,10 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         self.captcha_lock = captcha_lock
         self.scrape_method = 'selenium'
 
+        self.xvfb_display = Config['SELENIUM'].get('xvfb_display', None)
+
+        self.search_param_values = self._get_search_param_values()
+
         # get the base search url based on the search engine.
         self.base_search_url = get_base_search_url_by_search_engine(self.search_engine_name, self.scrape_method)
         super().instance_creation_info(self.__class__.__name__)
@@ -124,7 +150,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
     def switch_proxy(self, proxy):
         """Switch the proxy on the communication channel."""
 
-    def proxy_check(self):
+    def proxy_check(self, proxy):
         assert self.proxy and self.webdriver, 'Scraper instance needs valid webdriver and proxy instance to make the proxy check'
 
         online = False
@@ -137,7 +163,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 text = re.search(r'(\{.*?\})', self.webdriver.page_source, flags=re.DOTALL).group(0)
                 ipinfo = json.loads(text)
             except ValueError as v:
-                logger.critical(text)
+                logger.critical(v)
 
         except Exception as e:
             status = str(e)
@@ -151,6 +177,11 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         super().update_proxy_status(status, ipinfo, online)
 
         return online
+
+    def _set_xvfb_display(self):
+        # TODO: should we check the format of the config?
+        if self.xvfb_display:
+            os.environ['DISPLAY'] = self.xvfb_display
 
     def _get_webdriver(self):
         """Return a webdriver instance and set it up with the according profile/ proxies.
@@ -174,7 +205,8 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         try:
             if self.proxy:
                 chrome_ops = webdriver.ChromeOptions()
-                chrome_ops.add_argument('--proxy-server={}://{}:{}'.format(self.proxy.proto, self.proxy.host, self.proxy.port))
+                chrome_ops.add_argument(
+                    '--proxy-server={}://{}:{}'.format(self.proxy.proto, self.proxy.host, self.proxy.port))
                 self.webdriver = webdriver.Chrome(chrome_options=chrome_ops)
             else:
                 self.webdriver = webdriver.Chrome()
@@ -188,7 +220,8 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         try:
             if self.proxy:
                 profile = webdriver.FirefoxProfile()
-                profile.set_preference("network.proxy.type", 1) # this means that the proxy is user set, regardless of the type
+                profile.set_preference("network.proxy.type",
+                                       1)  # this means that the proxy is user set, regardless of the type
                 if self.proxy.proto.lower().startswith('socks'):
                     profile.set_preference("network.proxy.socks", self.proxy.host)
                     profile.set_preference("network.proxy.socks_port", self.proxy.port)
@@ -233,7 +266,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
             logger.error(e)
         return False
 
-    def handle_request_denied(self):
+    def handle_request_denied(self, status_code):
         """Checks whether Google detected a potentially harmful request.
 
         Whenever such potential abuse is detected, Google shows an captcha.
@@ -253,21 +286,24 @@ class SelScrape(SearchEngineScrape, threading.Thread):
 
         needles = self.malicious_request_needles[self.search_engine_name]
 
-        if needles and needles['inurl'] in self.webdriver.current_url and needles['inhtml'] in self.webdriver.page_source:
+        if needles and needles['inurl'] in self.webdriver.current_url \
+                and needles['inhtml'] in self.webdriver.page_source:
 
             if Config['SELENIUM'].getboolean('manual_captcha_solving', False):
                 with self.captcha_lock:
                     import tempfile
+
                     tf = tempfile.NamedTemporaryFile('wb')
                     tf.write(self.webdriver.get_screenshot_as_png())
                     import webbrowser
+
                     webbrowser.open('file://{}'.format(tf.name))
                     solution = input('enter the captcha please...')
                     self.webdriver.find_element_by_name('submit').send_keys(solution + Keys.ENTER)
                     try:
                         self.search_input = WebDriverWait(self.webdriver, 5).until(
-                                EC.visibility_of_element_located(self._get_search_input_field()))
-                    except TimeoutException as e:
+                            EC.visibility_of_element_located(self._get_search_input_field()))
+                    except TimeoutException:
                         raise MaliciousRequestDetected('Requesting with this ip is not possible at the moment.')
                     tf.close()
 
@@ -275,21 +311,27 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 # Just wait until the user solves the captcha in the browser window
                 # 10 hours if needed :D
                 out('Waiting for user to solve captcha', lvl=1)
-                return self._wait_until_search_input_field_appears(10*60*60)
-
+                return self._wait_until_search_input_field_appears(10 * 60 * 60)
 
     def build_search(self):
         """Build the search for SelScrapers"""
         assert self.webdriver, 'Webdriver needs to be ready to build the search'
 
-        self.starting_point = None
-
         if Config['SCRAPING'].get('search_type', 'normal') == 'image':
-            self.starting_point = self.image_search_locations[self.search_engine_name]
+            starting_point = self.image_search_locations[self.search_engine_name]
         else:
-            self.starting_point = self.base_search_url
+            starting_point = self.base_search_url
 
-        self.webdriver.get(self.starting_point)
+        self.webdriver.get(starting_point)
+
+    def _get_search_param_values(self):
+        search_param_values = {}
+        if self.search_engine_name in self.search_params:
+            for param_key in self.search_params[self.search_engine_name]:
+                cfg = Config['SCRAPING'].get(param_key, None)
+                if cfg:
+                    search_param_values[param_key] = cfg
+        return search_param_values
 
     def _get_search_input_field(self):
         """Get the search input field for the current search_engine.
@@ -298,6 +340,12 @@ class SelScrape(SearchEngineScrape, threading.Thread):
             A tuple to locate the search field as used by seleniums function presence_of_element_located()
         """
         return self.input_field_selectors[self.search_engine_name]
+
+    def _get_search_param_fields(self):
+        if self.search_engine_name in self.param_field_selectors:
+            return self.param_field_selectors[self.search_engine_name]
+        else:
+            return {}
 
     def _wait_until_search_input_field_appears(self, max_wait=5):
         """Waits until the search input field can be located for the current search engine
@@ -320,22 +368,25 @@ class SelScrape(SearchEngineScrape, threading.Thread):
             logger.error('{}: TimeoutException waiting for search input field: {}'.format(self.name, e))
             return False
 
-
-    def _wait_until_search_input_field_contains_query(self, max_wait=5):
+    def _wait_until_search_param_fields_appears(self, max_wait=5):
         """Waits until the search input field contains the query.
 
         Args:
             max_wait: How long to wait maximally before returning False.
         """
-
-        def find_query_in_input(driver):
-            input_field = driver.find_element(*self._get_search_input_field())
-            return input_field.get_attribute('value') == self.query
+        def find_visible_search_param(driver):
+            for param, field in self._get_search_param_fields().items():
+                input_field = driver.find_element(*field)
+                if not input_field:
+                    return False
+            return True
 
         try:
-            WebDriverWait(self.webdriver, max_wait).until(find_query_in_input)
+            fields = WebDriverWait(self.webdriver, max_wait).until(find_visible_search_param)
+            return fields
         except TimeoutException as e:
-            logger.error('{}: TimeoutException waiting for query in input field: {}'.format(self.name, e))
+            logger.error('{}: TimeoutException waiting for search param field: {}'.format(self.name, e))
+            return False
 
     def _goto_next_page(self):
         """Click the next page element.
@@ -352,10 +403,12 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 selector = self.next_page_selectors[self.search_engine_name]
                 if selector:
                     try:
-                        next_element = WebDriverWait(self.webdriver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
+                        next_element = WebDriverWait(self.webdriver, 5).until(
+                            EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
                         webdriver.ActionChains(self.webdriver).move_to_element(next_element).perform()
                         # wait until the next page link emerges
-                        WebDriverWait(self.webdriver, 8).until(EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
+                        WebDriverWait(self.webdriver, 8).until(
+                            EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
                         element = self.webdriver.find_element_by_css_selector(selector)
                         next_url = element.get_attribute('href')
                         element.click()
@@ -399,7 +452,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
             selector = self.next_page_selectors[self.search_engine_name]
             try:
                 WebDriverWait(self.webdriver, 5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, selector)))
-            except (TimeoutException, WebDriverException) as e:
+            except (TimeoutException, WebDriverException):
                 self.wait_until_title_contains_keyword()
 
         elif self.search_type == 'image':
@@ -408,13 +461,11 @@ class SelScrape(SearchEngineScrape, threading.Thread):
         else:
             self.wait_until_title_contains_keyword()
 
-
     def wait_until_title_contains_keyword(self):
         try:
             WebDriverWait(self.webdriver, 5).until(EC.title_contains(self.query))
-        except TimeoutException as e:
-            out(SeleniumSearchError('{}: Keyword "{}" not found in title: {}'.format(self.name, self.query, self.webdriver.title)), lvl=4)
 
+    # Used for brute force input method
     def fill_search_input(self):
         self.search_input.clear()
         time.sleep(.25)
@@ -441,20 +492,57 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 return
 
             if self.search_input is False:
+                # @todo: pass status_code
                 self.search_input = self.handle_request_denied()
 
             if self.search_input:
+
+                # Brute force input method
+                # try:
+                #     self.fill_search_input()
+                # except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e1:
+                #     while True:
+                #         try:
+                #             self.build_search()
+                #             self.search_input = self._wait_until_search_input_field_appears()
+                #             self.fill_search_input()
+                #             break
+                #         except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e2:
+                #             pass
+
+                # Alternate method using Javascript code injection
+                self.search_input.clear()
+                time.sleep(.25)
+
+                self.search_param_fields = self._get_search_param_fields()
+
+                if self.search_param_fields:
+                    wait_res = self._wait_until_search_param_fields_appears()
+                    if wait_res is False:
+                        raise Exception('Waiting search param input fields time exceeds')
+                    for param, field in self.search_param_fields.items():
+                        if field[0] == By.ID:
+                            js_tpl = '''
+                            var field = document.getElementById("%s");
+                            field.setAttribute("value", "%s");
+                            '''
+                        elif field[0] == By.NAME:
+                            js_tpl = '''
+                            var fields = document.getElementsByName("%s");
+                            for (var f in fields) {
+                                f.setAttribute("value", "%s");
+                            }
+                            '''
+                        js_str = js_tpl % (field[1], self.search_param_values[param])
+                        self.webdriver.execute_script(js_str)
+
                 try:
-                    self.fill_search_input()
-                except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e1:
-                    while True:
-                        try:
-                            self.build_search()
-                            self.search_input = self._wait_until_search_input_field_appears()
-                            self.fill_search_input()
-                            break
-                        except (StaleElementReferenceException, InvalidElementStateException, ElementNotVisibleException) as e2:
-                            pass
+                    self.search_input.send_keys(self.query + Keys.ENTER)
+                except ElementNotVisibleException:
+                    time.sleep(2)
+                    self.search_input.send_keys(self.query + Keys.ENTER)
+
+                self.requested_at = datetime.datetime.utcnow()
             else:
                 out('{}: Cannot get handle to the input form for keyword {}.'.format(self.name, self.query), lvl=4)
                 continue
@@ -476,10 +564,10 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                 # Click the next page link not when leaving the loop
                 # in the next iteration.
                 if self.page_number in self.pages_per_keyword:
-                    self.next_url = self._goto_next_page()
+                    next_url = self._goto_next_page()
                     self.requested_at = datetime.datetime.utcnow()
 
-                    if not self.next_url:
+                    if not next_url:
                         break
 
     def page_down(self):
@@ -504,12 +592,15 @@ class SelScrape(SearchEngineScrape, threading.Thread):
     def run(self):
         """Run the SelScraper."""
 
+        self._set_xvfb_display()
+
         if not self._get_webdriver():
-            raise_or_log('{}: Aborting due to no available selenium webdriver.'.format(self.name), exception_obj=SeleniumMisconfigurationError)
+            raise_or_log('{}: Aborting due to no available selenium webdriver.'.format(self.name),
+                         exception_obj=SeleniumMisconfigurationError)
 
         try:
             self.webdriver.set_window_size(400, 400)
-            self.webdriver.set_window_position(400*(self.browser_num % 4), 400*(math.floor(self.browser_num//4)))
+            self.webdriver.set_window_position(400 * (self.browser_num % 4), 400 * (math.floor(self.browser_num // 4)))
         except WebDriverException as e:
             out('Cannot set window size: {}'.format(e), lvl=4)
 
@@ -542,6 +633,7 @@ The following functionality may differ in particular:
     - wait_until_serp_loaded()
 """
 
+
 class DuckduckgoSelScrape(SelScrape):
     """
     Duckduckgo is a little special since new results are obtained by ajax.
@@ -564,12 +656,14 @@ class DuckduckgoSelScrape(SelScrape):
     def wait_until_serp_loaded(self):
         super()._wait_until_search_input_field_contains_query()
 
+
 class BlekkoSelScrape(SelScrape):
     def __init__(self, *args, **kwargs):
         SelScrape.__init__(self, *args, **kwargs)
 
     def _goto_next_page(self):
         pass
+
 
 class AskSelScrape(SelScrape):
     def __init__(self, *args, **kwargs):
@@ -579,9 +673,9 @@ class AskSelScrape(SelScrape):
 
         def wait_until_keyword_in_url(driver):
             try:
-                return quote(self.query) in driver.current_url or\
-                       self.query.replace(' ', '+') in driver.current_url
-            except WebDriverException as e:
+                return quote(self.query) in driver.current_url or \
+                    self.query.replace(' ', '+') in driver.current_url
+            except WebDriverException:
                 pass
 
         WebDriverWait(self.webdriver, 5).until(wait_until_keyword_in_url)
