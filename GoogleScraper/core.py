@@ -330,13 +330,8 @@ def main(return_results=False, parse_cmd_line=True):
         return
 
     # get a scoped sqlalchemy session
-<<<<<<< HEAD
-    Session = get_session(scoped=False)
-    session = Session()
-=======
     session_cls = get_session(scoped=False)
     session = session_cls()
->>>>>>> upstream/master
 
     # add fixtures
     fixtures(session)
@@ -458,9 +453,6 @@ def main(return_results=False, parse_cmd_line=True):
             scheduler.run()
 
         else:
-<<<<<<< HEAD
-            raise InvalidConfigurationException('No such scrape_method {}'.format(Config['SCRAPING'].get('scrape_method')))
-
         # Once keywords have been scraped, query AdWords API for traffic numbers
         keywords_traffic = {}
         for keyword_set in keywords_adwords:
@@ -470,10 +462,6 @@ def main(return_results=False, parse_cmd_line=True):
                 keywords_traffic.update(get_traffic(keyword_set))
         set_values_from_adwords(session, keywords_traffic)
         progress_thread.adwords_done = True
-=======
-            raise InvalidConfigurationException(
-                'No such scrape_method {}'.format(Config['SCRAPING'].get('scrape_method')))
->>>>>>> upstream/master
 
         if method in ('selenium', 'http'):
             # progress_thread can be None
