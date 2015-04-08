@@ -1,0 +1,1841 @@
+{
+    "children": [
+        {
+            "type": "related_search",
+            "name": "cheesecake factory",
+            "competition": 0.02,
+            "average_monthly_search_volume": 1220000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "cheesecake factory nutrition",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 12100,
+                    "name": "cheesecake factory prices",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory coupons",
+                    "duplicate": false,
+                    "competition": 0.38
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory hours",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 3600,
+                    "name": "cheesecake factory cheesecake menu",
+                    "duplicate": false,
+                    "competition": 0.15
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 8100,
+                    "name": "cheesecake factory recipes",
+                    "duplicate": false,
+                    "competition": 0.2
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 301000,
+                    "name": "cheesecake recipe",
+                    "duplicate": true,
+                    "competition": 0.19
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 720,
+                    "name": "cheesecake factory reviews",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1220000,
+                    "name": "cheesecake factory",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 201000,
+                    "name": "cheesecake factory menu",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 2900,
+                    "name": "cheesecake factory nyc",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory coupons",
+                    "duplicate": true,
+                    "competition": 0.38
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 0,
+                    "name": "p. f. chang's china bis...",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 1830000,
+                    "name": "olive garden",
+                    "duplicate": false,
+                    "competition": 0.11
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 33100,
+                    "name": "maggiano's little italy",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 246000,
+                    "name": "california pizza kitchen",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 1220000,
+                    "name": "red lobster",
+                    "duplicate": false,
+                    "competition": 0.15
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cheese types",
+            "competition": 0.06,
+            "average_monthly_search_volume": 5400,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 70,
+                    "name": "cheese types a-z",
+                    "duplicate": false,
+                    "competition": 0.26
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese types alphabetical",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 90,
+                    "name": "cheese types list",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 110,
+                    "name": "cheese types popular",
+                    "duplicate": false,
+                    "competition": 0.11
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 50,
+                    "name": "common cheese types",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese types and characteristics",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1600,
+                    "name": "cheese brands",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 50,
+                    "name": "cheese types and taste",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese types",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 10,
+                    "name": "cheese types subway",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 10,
+                    "name": "cheese types and flavors",
+                    "duplicate": false,
+                    "competition": 0.35
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese types soft",
+                    "duplicate": false,
+                    "competition": 0
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cheese urban dictionary",
+            "competition": 0.0,
+            "average_monthly_search_volume": 1000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 320,
+                    "name": "cheese slang",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "cheese drug",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese types",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese urban dictionary starcraft",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 720,
+                    "name": "cheesy urban dictionary",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "cottage cheese urban dictionary",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 90,
+                    "name": "cheese grater urban dictionary",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "from under cheese urban dictionary",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1000,
+                    "name": "cheese urban dictionary",
+                    "duplicate": true,
+                    "competition": 0.0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese urban dictionary starcraft",
+                    "duplicate": true,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese urban dictionary weed",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 260,
+                    "name": "cheese pizza urban dictionary",
+                    "duplicate": false,
+                    "competition": 0.01
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cheese drug",
+            "competition": 0.02,
+            "average_monthly_search_volume": 1300,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1000,
+                    "name": "strawberry quick drug",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 20,
+                    "name": "cheese drug symptoms",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 9900,
+                    "name": "bath salts drug",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese drug side effects",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 10,
+                    "name": "cheese drug info",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese drug cocktail",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese drug urban dictionary",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese illegal drug",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1300,
+                    "name": "cheese drug",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese drug epidemic",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese drug side effects",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese drug reference",
+                    "duplicate": false,
+                    "competition": 0
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "how to make cheese",
+            "competition": 0.11,
+            "average_monthly_search_volume": 22200,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 6600,
+                    "name": "how to make mozzarella cheese",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 390,
+                    "name": "how to make american cheese",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "cheese making process",
+                    "duplicate": false,
+                    "competition": 0.16
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 480,
+                    "name": "how to make swiss cheese",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "how to make butter",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 49500,
+                    "name": "rennet",
+                    "duplicate": false,
+                    "competition": 0.29
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2900,
+                    "name": "how to make goat cheese",
+                    "duplicate": false,
+                    "competition": 0.09
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "how to make yogurt",
+                    "duplicate": false,
+                    "competition": 0.1
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 33100,
+                    "name": "how to make cheesecake",
+                    "duplicate": false,
+                    "competition": 0.17
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 22200,
+                    "name": "how to make cheese",
+                    "duplicate": true,
+                    "competition": 0.11
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 22200,
+                    "name": "how to make cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 2400,
+                    "name": "how to make cheese dip",
+                    "duplicate": false,
+                    "competition": 0.14
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cheese sauce",
+            "competition": 0.09,
+            "average_monthly_search_volume": 60500,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese sauce for pasta",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 6600,
+                    "name": "nacho cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.44
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "cheese sauce for mac and cheese",
+                    "duplicate": false,
+                    "competition": 0.09
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 33100,
+                    "name": "cheese sauce recipe",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2400,
+                    "name": "white cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.09
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 3600,
+                    "name": "velveeta cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.29
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese sauce for broccoli",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 4400,
+                    "name": "easy cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 60500,
+                    "name": "cheese sauce",
+                    "duplicate": true,
+                    "competition": 0.09
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1900,
+                    "name": "cheese sauce for nachos",
+                    "duplicate": false,
+                    "competition": 0.11
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese sauce for pasta",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 590,
+                    "name": "cheese sauce for fries",
+                    "duplicate": false,
+                    "competition": 0.1
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cheese history",
+            "competition": 0.02,
+            "average_monthly_search_volume": 590,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "types of cheese",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese making history",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 10,
+                    "name": "italian cheese history",
+                    "duplicate": false,
+                    "competition": 0.06
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 20,
+                    "name": "kraft cheese history",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 20,
+                    "name": "cheese history timeline",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese history facts",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 50,
+                    "name": "french cheese history",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 320,
+                    "name": "chuck e cheese history",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 590,
+                    "name": "cheese history",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 30,
+                    "name": "cheese history facts",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 20,
+                    "name": "cheese history timeline",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cheese history in france",
+                    "duplicate": false,
+                    "competition": 0
+                }
+            ]
+        },
+        {
+            "type": "related_search",
+            "name": "cartoon cheese",
+            "competition": 0.01,
+            "average_monthly_search_volume": 1900,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 30,
+                    "name": "cartoon cheese pictures",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 320,
+                    "name": "cartoon cheeseburger",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 140,
+                    "name": "cartoon yogurt",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 720,
+                    "name": "cartoon milk",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 20,
+                    "name": "cartoon cheese images",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 10,
+                    "name": "cartoon character cheese",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "coloring cartoon cheese",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 10,
+                    "name": "cheese mascots",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1900,
+                    "name": "cartoon cheese",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 320,
+                    "name": "cartoon cheeseburger",
+                    "duplicate": true,
+                    "competition": 0.0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 20,
+                    "name": "cartoon cheese images",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "cartoon cheese steak",
+                    "duplicate": false,
+                    "competition": 0
+                }
+            ]
+        },
+        {
+            "type": "autocomplete_result",
+            "name": "cheesecake factory",
+            "competition": 0.02,
+            "average_monthly_search_volume": 1220000,
+            "duplicate": true,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "cheesecake factory nutrition",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 12100,
+                    "name": "cheesecake factory prices",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory coupons",
+                    "duplicate": false,
+                    "competition": 0.38
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory hours",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 3600,
+                    "name": "cheesecake factory cheesecake menu",
+                    "duplicate": false,
+                    "competition": 0.15
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 8100,
+                    "name": "cheesecake factory recipes",
+                    "duplicate": false,
+                    "competition": 0.2
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 301000,
+                    "name": "cheesecake recipe",
+                    "duplicate": true,
+                    "competition": 0.19
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 720,
+                    "name": "cheesecake factory reviews",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 1220000,
+                    "name": "cheesecake factory",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 201000,
+                    "name": "cheesecake factory menu",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 2900,
+                    "name": "cheesecake factory nyc",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheesecake factory coupons",
+                    "duplicate": true,
+                    "competition": 0.38
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 0,
+                    "name": "p. f. chang's china bis...",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 1830000,
+                    "name": "olive garden",
+                    "duplicate": false,
+                    "competition": 0.11
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 33100,
+                    "name": "maggiano's little italy",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 246000,
+                    "name": "california pizza kitchen",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 1220000,
+                    "name": "red lobster",
+                    "duplicate": false,
+                    "competition": 0.15
+                }
+            ]
+        },
+        {
+            "type": "autocomplete_result",
+            "name": "cheesecake recipe",
+            "competition": 0.19,
+            "average_monthly_search_volume": 301000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 33100,
+                    "name": "easy cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.28
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 3600,
+                    "name": "original cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.29
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "no bake cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.23
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 27100,
+                    "name": "strawberry cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.14
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 27100,
+                    "name": "oreo cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 14800,
+                    "name": "simple cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.21
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2900,
+                    "name": "cheesecake factory recipe",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 3600,
+                    "name": "plain cheesecake recipe",
+                    "duplicate": false,
+                    "competition": 0.19
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 301000,
+                    "name": "cheesecake recipe",
+                    "duplicate": true,
+                    "competition": 0.19
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheesecake recipe easy",
+                    "duplicate": false,
+                    "competition": 0.25
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 320,
+                    "name": "cheesecake recipe sour cream",
+                    "duplicate": false,
+                    "competition": 0.18
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 6600,
+                    "name": "cheesecake recipe no bake",
+                    "duplicate": false,
+                    "competition": 0.22
+                }
+            ]
+        },
+        {
+            "type": "autocomplete_result",
+            "name": "cheesecake factory menu",
+            "competition": 0.06,
+            "average_monthly_search_volume": 201000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 9900,
+                    "name": "cheesecake factory menu prices",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2400,
+                    "name": "cheesecake factory menu pdf",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "cheesecake factory nutrition",
+                    "duplicate": true,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 390,
+                    "name": "cheesecake factory menu gluten free",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 880,
+                    "name": "cheesecake factory menu calories",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 40500,
+                    "name": "cheesecake factory locations",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2900,
+                    "name": "cheesecake factory kids menu",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 590,
+                    "name": "cheesecake factory menu prices pdf",
+                    "duplicate": false,
+                    "competition": 0.2
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 201000,
+                    "name": "cheesecake factory menu",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 9900,
+                    "name": "cheesecake factory menu prices",
+                    "duplicate": true,
+                    "competition": 0.12
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 880,
+                    "name": "cheesecake factory menu calories",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 90,
+                    "name": "cheesecake factory menu brunch",
+                    "duplicate": false,
+                    "competition": 0.03
+                }
+            ]
+        },
+        {
+            "type": "autocomplete_result",
+            "name": "cheese",
+            "competition": 0.04,
+            "average_monthly_search_volume": 450000,
+            "duplicate": true,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1220000,
+                    "name": "cheesecake factory",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 5400,
+                    "name": "cheese types",
+                    "duplicate": true,
+                    "competition": 0.06
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1000,
+                    "name": "cheese urban dictionary",
+                    "duplicate": true,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "cheese drug",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "how to make cheese",
+                    "duplicate": true,
+                    "competition": 0.11
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 60500,
+                    "name": "cheese sauce",
+                    "duplicate": true,
+                    "competition": 0.09
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 590,
+                    "name": "cheese history",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1900,
+                    "name": "cartoon cheese",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 450000,
+                    "name": "cheese",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 14800,
+                    "name": "cheese making",
+                    "duplicate": false,
+                    "competition": 0.67
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 9900,
+                    "name": "cheese recipes",
+                    "duplicate": false,
+                    "competition": 0.14
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 6600,
+                    "name": "cheese making supplies",
+                    "duplicate": false,
+                    "competition": 0.98
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 165000,
+                    "name": "mozzarella",
+                    "duplicate": true,
+                    "competition": 0.03
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 450000,
+                    "name": "milk",
+                    "duplicate": true,
+                    "competition": 0.03
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 201000,
+                    "name": "butter",
+                    "duplicate": true,
+                    "competition": 0.05
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 40500,
+                    "name": "parmigiano reggiano",
+                    "duplicate": true,
+                    "competition": 0.17
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 49500,
+                    "name": "cheddar cheese",
+                    "duplicate": true,
+                    "competition": 0.1
+                }
+            ]
+        },
+        {
+            "type": "people_also_search_for",
+            "name": "mozzarella",
+            "competition": 0.03,
+            "average_monthly_search_volume": 165000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 6600,
+                    "name": "mozzarella recipe",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 390,
+                    "name": "mozzarella nutrition facts",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 210,
+                    "name": "mozzarella tomato basil appetizer",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 12100,
+                    "name": "mozzarella sticks recipe",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1000,
+                    "name": "mozzarella nutrition",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1900,
+                    "name": "mozzarella calories",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 260,
+                    "name": "mozzarella pronunciation",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "mozzarella cheese nutrition",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 27100,
+                    "name": "mozzarella cheese",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 12100,
+                    "name": "mozzarella sticks recipe",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 33100,
+                    "name": "mozzarella in carrozza",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 590,
+                    "name": "mozzarella en carozza",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 450000,
+                    "name": "cheese",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 40500,
+                    "name": "parmigiano reggiano",
+                    "duplicate": true,
+                    "competition": 0.17
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 3350000,
+                    "name": "pizza",
+                    "duplicate": false,
+                    "competition": 0.29
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 49500,
+                    "name": "cheddar cheese",
+                    "duplicate": true,
+                    "competition": 0.1
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 12100,
+                    "name": "buffalo mozzarella",
+                    "duplicate": false,
+                    "competition": 0.08
+                }
+            ]
+        },
+        {
+            "type": "people_also_search_for",
+            "name": "milk",
+            "competition": 0.03,
+            "average_monthly_search_volume": 450000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 8100,
+                    "name": "milk nutrition facts",
+                    "duplicate": false,
+                    "competition": 0.11
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 74000,
+                    "name": "harvey milk",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 6600,
+                    "name": "benefits of milk",
+                    "duplicate": false,
+                    "competition": 0.1
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 6600,
+                    "name": "milk nutrition",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 9900,
+                    "name": "milk studios",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 18100,
+                    "name": "milk movie",
+                    "duplicate": false,
+                    "competition": 0.13
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 8100,
+                    "name": "cow milk",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1900,
+                    "name": "milk brands",
+                    "duplicate": false,
+                    "competition": 0.17
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 50,
+                    "name": "milk (dairy product)",
+                    "duplicate": false,
+                    "competition": 0.22
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 30,
+                    "name": "milk (2008 film)",
+                    "duplicate": false,
+                    "competition": 0.05
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "harvey milk (former san francisco supervisor)",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 450000,
+                    "name": "milk",
+                    "duplicate": true,
+                    "competition": 0.03
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 49500,
+                    "name": "milk and honey",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 368000,
+                    "name": "milky chance",
+                    "duplicate": false,
+                    "competition": 0.14
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 9900,
+                    "name": "milk studios",
+                    "duplicate": true,
+                    "competition": 0.0
+                }
+            ]
+        },
+        {
+            "type": "people_also_search_for",
+            "name": "butter",
+            "competition": 0.05,
+            "average_monthly_search_volume": 201000,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 9900,
+                    "name": "butter movie",
+                    "duplicate": false,
+                    "competition": 0.17
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 4400,
+                    "name": "butter restaurant",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 8100,
+                    "name": "butter nail polish",
+                    "duplicate": false,
+                    "competition": 1.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1300,
+                    "name": "butter 2011",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 720,
+                    "name": "butter clothing",
+                    "duplicate": false,
+                    "competition": 0.36
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 4400,
+                    "name": "butter shoes",
+                    "duplicate": false,
+                    "competition": 0.84
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 590,
+                    "name": "butter trailer",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2900,
+                    "name": "butter ingredients",
+                    "duplicate": false,
+                    "competition": 0.06
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 0,
+                    "name": "butter (restaurant company)",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 30,
+                    "name": "butter (dairy product)",
+                    "duplicate": false,
+                    "competition": 0.1
+                },
+                {
+                    "type": "disambiguation_result",
+                    "average_monthly_search_volume": 50,
+                    "name": "butter (2011 film)",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 135000,
+                    "name": "butternut squash recipes",
+                    "duplicate": false,
+                    "competition": 0.06
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 201000,
+                    "name": "butternut squash soup",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 9900,
+                    "name": "butter nyc",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 6600,
+                    "name": "butternut ski",
+                    "duplicate": false,
+                    "competition": 0.01
+                }
+            ]
+        },
+        {
+            "type": "people_also_search_for",
+            "name": "parmigiano reggiano",
+            "competition": 0.17,
+            "average_monthly_search_volume": 40500,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 210,
+                    "name": "parmigiano reggiano substitute",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 210,
+                    "name": "parmigiano reggiano price",
+                    "duplicate": false,
+                    "competition": 0.87
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 170,
+                    "name": "parmigiano reggiano vs parmesan",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 260,
+                    "name": "parmigiano reggiano recipes",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 210,
+                    "name": "parmigiano reggiano rind",
+                    "duplicate": false,
+                    "competition": 0.04
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 110,
+                    "name": "parmigiano reggiano walmart",
+                    "duplicate": false,
+                    "competition": 0.27
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 40,
+                    "name": "parmigiano reggiano vs pecorino romano",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 0,
+                    "name": "parmigiano reggiano pronounce",
+                    "duplicate": false,
+                    "competition": 0
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 40500,
+                    "name": "parmigiano reggiano",
+                    "duplicate": true,
+                    "competition": 0.17
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 2900,
+                    "name": "parmigiano reggiano cheese",
+                    "duplicate": false,
+                    "competition": 0.27
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 210,
+                    "name": "parmigiano reggiano price",
+                    "duplicate": true,
+                    "competition": 0.87
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 210,
+                    "name": "parmigiano reggiano rind",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 450000,
+                    "name": "cheese",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 165000,
+                    "name": "mozzarella",
+                    "duplicate": true,
+                    "competition": 0.03
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 60500,
+                    "name": "grana padano",
+                    "duplicate": false,
+                    "competition": 0.03
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 40500,
+                    "name": "parmigiana",
+                    "duplicate": false,
+                    "competition": 0.0
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 246000,
+                    "name": "pesto",
+                    "duplicate": false,
+                    "competition": 0.05
+                }
+            ]
+        },
+        {
+            "type": "people_also_search_for",
+            "name": "cheddar cheese",
+            "competition": 0.1,
+            "average_monthly_search_volume": 49500,
+            "duplicate": false,
+            "children": [
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 27100,
+                    "name": "mozzarella cheese",
+                    "duplicate": true,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 170,
+                    "name": "cheddar cheese brands",
+                    "duplicate": false,
+                    "competition": 0.18
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 22200,
+                    "name": "types of cheese",
+                    "duplicate": true,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2900,
+                    "name": "how to make cheddar cheese",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 390,
+                    "name": "cheddar cheese ingredients",
+                    "duplicate": false,
+                    "competition": 0.12
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 70,
+                    "name": "cheddar cheese history",
+                    "duplicate": false,
+                    "competition": 0.08
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 1000,
+                    "name": "cheddar cheese recipe",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "related_search",
+                    "average_monthly_search_volume": 2400,
+                    "name": "cheddar cheese nutrition",
+                    "duplicate": false,
+                    "competition": 0.01
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 49500,
+                    "name": "cheddar cheese",
+                    "duplicate": true,
+                    "competition": 0.1
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 4400,
+                    "name": "cheddar cheese sauce",
+                    "duplicate": false,
+                    "competition": 0.07
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 590,
+                    "name": "cheddar cheese fondue",
+                    "duplicate": false,
+                    "competition": 0.02
+                },
+                {
+                    "type": "autocomplete_result",
+                    "average_monthly_search_volume": 2400,
+                    "name": "cheddar cheese nutrition",
+                    "duplicate": true,
+                    "competition": 0.01
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 450000,
+                    "name": "cheese",
+                    "duplicate": true,
+                    "competition": 0.04
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 165000,
+                    "name": "mozzarella",
+                    "duplicate": true,
+                    "competition": 0.03
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 165000,
+                    "name": "macaroni and cheese",
+                    "duplicate": false,
+                    "competition": 0.28
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 40500,
+                    "name": "parmigiano reggiano",
+                    "duplicate": true,
+                    "competition": 0.17
+                },
+                {
+                    "type": "people_also_search_for",
+                    "average_monthly_search_volume": 22200,
+                    "name": "american cheese",
+                    "duplicate": false,
+                    "competition": 0.05
+                }
+            ]
+        }
+    ],
+    "type": "origin",
+    "name": "cheese",
+    "average_monthly_search_volume": 450000,
+    "competition": 0.04
+}

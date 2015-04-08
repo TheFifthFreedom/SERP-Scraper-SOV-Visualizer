@@ -9,7 +9,7 @@ if __name__ == '__main__':
     config = {
         'SCRAPING': {
             'use_own_ip': 'True',
-            'keywords': 'electric toothbrush',
+            'keywords': 'cheese',
             'search_engines': 'google',
             'num_workers': 1
         },
@@ -26,6 +26,6 @@ if __name__ == '__main__':
 
     try:
         #sqlalchemy_session = scrape_with_config(config)
-        print (generate_map(config))
+        generate_map(config, 2)
     except GoogleSearchError as e:
         print(e)

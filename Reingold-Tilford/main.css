@@ -1,0 +1,70 @@
+.node {
+  cursor: pointer;
+}
+
+.node text {
+  font-size:10px;
+  font-family:sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.templink {
+  fill: none;
+  stroke: red;
+  stroke-width: 3px;
+}
+
+.ghostCircle.show{
+    display:block;
+}
+
+.ghostCircle, .activeDrag .ghostCircle{
+     display: none;
+}
+
+.related_search {
+  fill: none;
+  stroke: #86D9DA;
+  stroke-width: 1.5px;
+}
+
+.disambiguation_result {
+  fill: none;
+  stroke: #E1B96C;
+  stroke-width: 1.5px;
+}
+
+.autocomplete_result{
+  fill: none;
+  stroke: #CADF70;
+  stroke-width: 1.5px;
+}
+
+.autocorrect_forced {
+  fill: none;
+  stroke: #8BE0A4;
+  stroke-width: 1.5px;
+}
+
+.autocorrect_suggested {
+  fill: none;
+  stroke: #C8BEE5;
+  stroke-width: 1.5px;
+}
+
+.people_also_search_for {
+  fill: none;
+  stroke: #F1A5B3;
+  stroke-width: 1.5px;
+}
+
+.broken {
+  fill: none;
+  stroke: red;
+  stroke-width: 1.5px
+}

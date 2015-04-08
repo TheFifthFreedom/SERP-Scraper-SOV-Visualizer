@@ -8,12 +8,12 @@ from GoogleScraper import scrape_with_config, GoogleSearchError
 from GoogleScraper.adwords import get_traffic
 from GoogleScraper.database import SearchEngineResultsPage, KnowledgeGraph
 
-def generate_map(config):
+def generate_map(config, n_depth):
 
-    semantic_map = {'name': keyword_cleanup(config['SCRAPING']['keywords']), 'type': 'origin'}
+    semantic_map = {'name': keyword_cleanup(config['SCRAPING']['keywords']), 'type': 'origin', 'duplicate': False}
+    duplicates = {keyword_cleanup(config['SCRAPING']['keywords']): 1}
     keywords = [keyword_cleanup(config['SCRAPING']['keywords'])]
     keywords_string = '\n'.join(keywords)
-    n_depth = 2
 
     for i in range(n_depth):
         keywords_temp = []
@@ -43,63 +43,124 @@ def generate_map(config):
                 if len(related_searches) > 1:
                     related_searches = related_searches.split('; ')
                     for related_search in related_searches:
-                        children.append({'name': keyword_cleanup(related_search), 'type': 'related_search'})
                         if keyword_cleanup(related_search) not in keywords_temp:
                             keywords_temp.append(keyword_cleanup(related_search))
+                        if keyword_cleanup(related_search) not in duplicates:
+                            duplicates[keyword_cleanup(related_search)] = 1
+                            children.append({'name': keyword_cleanup(related_search), 'type': 'related_search', 'duplicate': False})
+                        else:
+                            duplicates[keyword_cleanup(related_search)] += 1
+                            children.append({'name': keyword_cleanup(related_search), 'type': 'related_search', 'duplicate': True})
                 else:
-                    children.append({'name': keyword_cleanup(related_searches), 'type': 'related_search'})
                     if keyword_cleanup(related_searches) not in keywords_temp:
                         keywords_temp.append(keyword_cleanup(related_searches))
+                    if keyword_cleanup(related_searches) not in duplicates:
+                        duplicates[keyword_cleanup(related_searches)] = 1
+                        children.append({'name': keyword_cleanup(related_searches), 'type': 'related_search', 'duplicate': False})
+                    else:
+                        duplicates[keyword_cleanup(related_searches)] += 1
+                        children.append({'name': keyword_cleanup(related_searches), 'type': 'related_search', 'duplicate': True})
 
             if disambiguation_results is not None:
                 if len(disambiguation_results) > 1:
                     disambiguation_results = disambiguation_results.split('; ')
                     for disambiguation_result in disambiguation_results:
-                        children.append({'name': keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]), 'type': 'disambiguation_result'})
                         if keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]) not in keywords_temp:
                             keywords_temp.append(keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]))
+                        if keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]) not in duplicates:
+                            duplicates[keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')])] = 1
+                            children.append({'name': keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]), 'type': 'disambiguation_result', 'duplicate': False})
+                        else:
+                            duplicates[keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')])] += 1
+                            children.append({'name': keyword_cleanup(disambiguation_result[:disambiguation_result.find(' - ')]), 'type': 'disambiguation_result', 'duplicate': True})
+
                 else:
-                    children.append({'name': keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]), 'type': 'disambiguation_result'})
                     if keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]) not in keywords_temp:
                         keywords_temp.append(keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]))
+                    if keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]) not in duplicates:
+                        duplicates[keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')])] = 1
+                        children.append({'name': keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]), 'type': 'disambiguation_result', 'duplicate': False})
+                    else:
+                        duplicates[keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')])] += 1
+                        children.append({'name': keyword_cleanup(disambiguation_results[:disambiguation_results.find(' - ')]), 'type': 'disambiguation_result', 'duplicate': True})
 
             if autocomplete_results is not None:
                 if len(autocomplete_results) > 1:
                     autocomplete_results = autocomplete_results.split('; ')
                     for autocomplete_result in autocomplete_results:
-                        children.append({'name': keyword_cleanup(autocomplete_result), 'type': 'autocomplete_result'})
                         if keyword_cleanup(autocomplete_result) not in keywords_temp:
                             keywords_temp.append(keyword_cleanup(autocomplete_result))
+                        if keyword_cleanup(autocomplete_result) not in duplicates:
+                            duplicates[keyword_cleanup(autocomplete_result)] = 1
+                            children.append({'name': keyword_cleanup(autocomplete_result), 'type': 'autocomplete_result', 'duplicate': False})
+                        else:
+                            duplicates[keyword_cleanup(autocomplete_result)] += 1
+                            children.append({'name': keyword_cleanup(autocomplete_result), 'type': 'autocomplete_result', 'duplicate': True})
+
                 else:
-                    children.append({'name': keyword_cleanup(autocomplete_results), 'type': 'autocomplete_result'})
                     if keyword_cleanup(autocomplete_results) not in keywords_temp:
                         keywords_temp.append(keyword_cleanup(autocomplete_results))
+                    if keyword_cleanup(autocomplete_results) not in duplicates:
+                        duplicates[keyword_cleanup(autocomplete_results)] = 1
+                        children.append({'name': keyword_cleanup(autocomplete_results), 'type': 'autocomplete_result', 'duplicate': False})
+                    else:
+                        duplicates[keyword_cleanup(autocomplete_results)] += 1
+                        children.append({'name': keyword_cleanup(autocomplete_results), 'type': 'autocomplete_result', 'duplicate': True})
 
             if autocorrect_forced is not None:
-                children.append({'name': keyword_cleanup(autocorrect_forced), 'type': 'autocorrect_forced'})
                 if keyword_cleanup(autocorrect_forced) not in keywords_temp:
                     keywords_temp.append(keyword_cleanup(autocorrect_forced))
+                if keyword_cleanup(autocorrect_forced) not in duplicates:
+                    duplicates[keyword_cleanup(autocorrect_forced)] = 1
+                    children.append({'name': keyword_cleanup(autocorrect_forced), 'type': 'autocorrect_forced', 'duplicate': False})
+                else:
+                    duplicates[keyword_cleanup(autocorrect_forced)] += 1
+                    children.append({'name': keyword_cleanup(autocorrect_forced), 'type': 'autocorrect_forced', 'duplicate': True})
+
             elif autocorrect_suggested is not None:
-                children.append({'name': keyword_cleanup(autocorrect_suggested), 'type': 'autocorrect_suggested'})
                 if keyword_cleanup(autocorrect_suggested) not in keywords_temp:
                     keywords_temp.append(keyword_cleanup(autocorrect_suggested))
+                if keyword_cleanup(autocorrect_suggested) not in duplicates:
+                    duplicates[keyword_cleanup(autocorrect_suggested)] = 1
+                    children.append({'name': keyword_cleanup(autocorrect_suggested), 'type': 'autocorrect_suggested', 'duplicate': False})
+                else:
+                    duplicates[keyword_cleanup(autocorrect_suggested)] += 1
+                    children.append({'name': keyword_cleanup(autocorrect_suggested), 'type': 'autocorrect_suggested', 'duplicate': True})
 
             if people_also_search_for is not None:
                 if len(people_also_search_for) > 1:
                     people_also_search_for = people_also_search_for.split('; ')
                     for people_also_search_for_element in people_also_search_for:
-                        children.append({'name': keyword_cleanup(people_also_search_for_element), 'type': 'people_also_search_for'})
                         if keyword_cleanup(people_also_search_for_element) not in keywords_temp:
                             keywords_temp.append(keyword_cleanup(people_also_search_for_element))
+                        if keyword_cleanup(people_also_search_for_element) not in duplicates:
+                            duplicates[keyword_cleanup(people_also_search_for_element)] = 1
+                            children.append({'name': keyword_cleanup(people_also_search_for_element), 'type': 'people_also_search_for', 'duplicate': False})
+                        else:
+                            duplicates[keyword_cleanup(people_also_search_for_element)] += 1
+                            children.append({'name': keyword_cleanup(people_also_search_for_element), 'type': 'people_also_search_for', 'duplicate': True})
                 else:
-                    children.append({'name': keyword_cleanup(people_also_search_for), 'type': 'people_also_search_for'})
                     if keyword_cleanup(people_also_search_for) not in keywords_temp:
                         keywords_temp.append(keyword_cleanup(people_also_search_for))
+                    if keyword_cleanup(people_also_search_for) not in duplicates:
+                        duplicates[keyword_cleanup(people_also_search_for)] = 1
+                        children.append({'name': keyword_cleanup(people_also_search_for), 'type': 'people_also_search_for', 'duplicate': False})
+                    else:
+                        duplicates[keyword_cleanup(people_also_search_for)] += 1
+                        children.append({'name': keyword_cleanup(people_also_search_for), 'type': 'people_also_search_for', 'duplicate': True})
 
             pointers = keyword_pointers[keyword]
             for pointer in pointers:
-                pointer['average_monthly_search_volume'] = int(average_monthly_search_volume)
-                pointer['competition'] = float(competition)
+                if average_monthly_search_volume is not None:
+                    pointer['average_monthly_search_volume'] = int(average_monthly_search_volume)
+                else:
+                    pointer['average_monthly_search_volume'] = 0
+
+                if competition is not None:
+                    pointer['competition'] = float(competition)
+                else:
+                    pointer['competition'] = 0
+
                 pointer['children'] = children
 
         keywords = keywords_temp
@@ -129,7 +190,11 @@ def generate_map(config):
                     else:
                         pointer['competition'] = 0
 
-    return json.dumps(semantic_map, indent=3)
+    with open('Reingold-Tilford/semantic_map.json', 'w') as outfile:
+        json.dump(semantic_map, outfile, indent = 4)
+
+    with open('Reingold-Tilford/duplicates.json', 'w') as outfile:
+        json.dump(duplicates, outfile, indent = 4)
 
 
 def traverse(obj, target, results):
