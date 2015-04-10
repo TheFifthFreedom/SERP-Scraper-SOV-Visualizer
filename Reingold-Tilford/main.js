@@ -159,7 +159,7 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
         .attr("width", viewerWidth)
         .attr("height", viewerHeight)
         .attr("class", "overlay")
-        .call(zoomListener);
+        .call(zoomListener).on("dblclick.zoom", null);
 
 
     // Define the drag listeners for drag/drop behaviour of nodes.
@@ -215,7 +215,6 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
                 return;
             }
             domNode = this;
-            var is_duplicate = d.duplicate;
             if (selectedNode) {
 
                 // Checking if we're moving a child to its current parent
@@ -248,16 +247,16 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
                 // Make sure that the node being added to is expanded so user can see added node is correctly moved
                 expand(selectedNode);
                 // sortTree();
-                endDrag(is_duplicate);
+                endDrag();
             } else {
-                endDrag(is_duplicate);
+                endDrag();
             }
         });
 
-    function endDrag(is_duplicate) {
+    function endDrag() {
         selectedNode = null;
         d3.selectAll('.ghostCircle').attr('class', 'ghostCircle');
-        d3.select(domNode).attr('class', function(d) { if (is_duplicate == true) {return "node duplicate";} else {return "node";} });
+        d3.select(domNode).attr('class', 'node');
         // now restore the mouseover event or we won't be able to drag a 2nd time
         d3.select(domNode).select('.ghostCircle').attr('pointer-events', '');
         updateTempConnector();
@@ -400,7 +399,7 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
         // Enter any new nodes at the parent's previous position.
         var nodeEnter = node.enter().append("g")
             .call(dragListener)
-            .attr("class", function(d) { if (d.duplicate == true) {return "node duplicate";} else {return "node";} })
+            .attr("class", function(d) { if (baseSvg.select("#check").node().checked && d.duplicate == true) {return "node hidden";} else {return "node";} })
             .attr("transform", function(d) {
                 return "translate(" + source.y0 + "," + source.x0 + ")";
             })
@@ -496,7 +495,8 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
 
         // Enter any new links at the parent's previous position.
         link.enter().insert("path", "g")
-            .attr("class", function(d) { return "link " + d.target.type })
+            .attr('class', function(d) { if (baseSvg.select("#check").node().checked && d.target.duplicate == true && d.target.hasOwnProperty('children') == false && d.target.hasOwnProperty('_children') == false) {return "link " + d.target.type + ' hidden';} else {return "link " + d.target.type} })
+            //.attr("class", function(d) { return "link " + d.target.type })
             .attr("d", function(d) {
                 var o = {
                     x: source.x0,
@@ -615,8 +615,41 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
         .append("xhtml:body")
         .html("<form><input type=checkbox id=check /></form>")
         .on("click", function(){
-            if (baseSvg.select("#check").node().checked) {$(".duplicate").css("fill", "none");}
-            else {$(".duplicate").css("fill", "");}
+            var nodes = svgGroup.selectAll('g.node');
+            var links = svgGroup.selectAll('path.link');
+            // Hide duplicates accordingly
+            if (baseSvg.select("#check").node().checked) {
+                nodes.filter(function(d) {
+                    if (d.duplicate == true && d.hasOwnProperty('children') == false && d.hasOwnProperty('_children') == false) {return true;}
+                    else {return false;}
+                }).attr('class', function(){return this.getAttribute('class') + ' hidden';});
+
+                nodes.filter(function(d) {
+                    if (d.duplicate == true && (d.hasOwnProperty('_children') == true || d.hasOwnProperty('children') == true)) {return true;}
+                    else {return false;}
+                }).select('text').attr('class', function(){return this.getAttribute('class') + ' hidden';});
+
+                links.filter(function(d) {
+                    if (d.target.duplicate == true && d.target.hasOwnProperty('children') == false && d.target.hasOwnProperty('_children') == false) {return true;}
+                    else {return false;}
+                }).attr('class', function(){return this.getAttribute('class') + ' hidden';});
+            }
+            else {
+                nodes.filter(function(d) {
+                    if (d.duplicate == true && d.hasOwnProperty('children') == false && d.hasOwnProperty('_children') == false) {return true;}
+                    else {return false;}
+                }).attr('class', function(){return this.getAttribute('class').replace(' hidden', '');});
+
+                nodes.filter(function(d) {
+                    if (d.duplicate == true && (d.hasOwnProperty('_children') == true || d.hasOwnProperty('children') == true)) {return true;}
+                    else {return false;}
+                }).select('text').attr('class', function(){return this.getAttribute('class').replace(' hidden', '');});
+
+                links.filter(function(d) {
+                    if (d.target.duplicate == true && d.target.hasOwnProperty('children') == false && d.target.hasOwnProperty('_children') == false) {return true;}
+                    else {return false;}
+                }).attr('class', function(){return this.getAttribute('class').replace(' hidden', '');});
+            }
         });
 
     // Define the root
