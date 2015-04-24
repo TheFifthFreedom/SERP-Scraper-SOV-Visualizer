@@ -1,3 +1,4 @@
+/* Reingold Tilford Tree */
 .hidden {
   display: none;
 }
@@ -70,5 +71,36 @@
 .broken {
   fill: none;
   stroke: red;
-  stroke-width: 1.5px
+  stroke-width: 1.5px;
+}
+
+/* Bar Chart */
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+/* Pop-up Overlay */
+#popup {
+    background-color: #f0f0f0;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }

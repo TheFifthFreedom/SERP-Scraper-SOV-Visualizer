@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import re
+import csv
 import json
+import operator
 from sqlalchemy import *
 from sqlalchemy.orm import *
 from GoogleScraper import scrape_with_config, GoogleSearchError
@@ -193,9 +195,12 @@ def generate_map(config, n_depth):
     with open('Reingold-Tilford/semantic_map.json', 'w') as outfile:
         json.dump(semantic_map, outfile, indent = 4)
 
-    with open('Reingold-Tilford/duplicates.json', 'w') as outfile:
-        json.dump(duplicates, outfile, indent = 4)
-
+    with open('Reingold-Tilford/duplicates.csv', 'w') as outfile:
+        fieldnames = ['Keyword', 'Frequency']
+        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for tuple in sorted(duplicates.items(), key=operator.itemgetter(1), reverse=True):
+            writer.writerow({'Keyword': tuple[0], 'Frequency': tuple[1]})
 
 def traverse(obj, target, results):
     if isinstance(obj, dict):

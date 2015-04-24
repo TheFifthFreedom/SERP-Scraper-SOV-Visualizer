@@ -652,6 +652,85 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
             }
         });
 
+    // Include the bar chart in the bottom left corner
+    var margin = {top: 30, right: 30, bottom: 50, left: 30},
+        width = 200 - margin.left,
+        height = 250 - margin.bottom;
+
+    var xScale = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+    var yScale = d3.scale.linear()
+        .range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
+        .ticks(10);
+
+    var barChart = baseSvg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + (viewerHeight - 250) + ")")
+        .on("click", function(){
+            $('#popup').popup('show');
+        });
+
+    d3.csv("duplicates.csv", function(error, data) {
+      // Transposing the duplicates data: we want to map the keyword count per frequency
+      duplicates = []
+      data.forEach(function(object){
+          var frequency = object['Frequency'];
+          if (frequency > 1){
+            var result = duplicates.filter(function(duplicate) {
+                return duplicate.Frequency == frequency;
+            });
+            if (result.length == 0){
+                duplicates.push({'Frequency': frequency, 'Number of Keywords': 1});
+            }
+            else{
+                result[0]['Number of Keywords'] += 1;
+            }
+          }
+      });
+
+      xScale.domain(duplicates.map(function(d) { return d.Frequency; }));
+      yScale.domain([0, d3.max(duplicates, function(d) { return d['Number of Keywords']; })]);
+
+      barChart.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+        .append('text')
+          .attr('x', width/2)
+          .attr("y", 20)
+          .attr("dy", ".71em")
+          .style("text-anchor", "middle")
+          .text("Frequency");
+
+      barChart.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Number of Keywords");
+
+      barChart.selectAll(".bar")
+          .data(duplicates)
+        .enter().append("rect")
+          .attr("class", "bar")
+          .attr("x", function(d) { return xScale(d.Frequency); })
+          .attr("width", xScale.rangeBand())
+          .attr("y", function(d) { return yScale(d['Number of Keywords']); })
+          .attr("height", function(d) { return height - yScale(d['Number of Keywords']); });
+
+    });
+
     // Define the root
     root = treeData;
     root.x0 = viewerHeight / 2;
@@ -661,3 +740,85 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
     update(root);
     centerNode(root);
 });
+
+function populatePopup(){
+    d3.csv("duplicates.csv", function(error, data) {
+      var margin = {top: 20, right: 20, bottom: 200, left: 40},
+          width = 960 - margin.left - margin.right,
+          height = 700 - margin.top - margin.bottom;
+
+      var x = d3.scale.ordinal()
+          .rangeRoundBands([0, width], .1, 0.5);
+
+      var y = d3.scale.linear()
+          .range([height, 0]);
+
+      var xAxis = d3.svg.axis()
+          .scale(x)
+          .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+          .scale(y)
+          .orient("left")
+          .ticks(10);
+
+      var svg = d3.select("#popup").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // We're only concerned about the keywords with a frequency higher than 2
+      duplicates = []
+      data.forEach(function(object){
+          var keyword = object['Keyword'];
+          var frequency = object['Frequency'];
+          if (frequency > 1){
+            duplicates.push({'Keyword': keyword, 'Frequency': frequency});
+          }
+      });
+
+      x.domain(duplicates.map(function(d) { return d.Keyword; }));
+      y.domain([0, d3.max(duplicates, function(d) { return d.Frequency; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis)
+          .selectAll('text')
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", "-.15em")
+            .attr("transform", "rotate(-65)");
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Frequency");
+
+      svg.selectAll(".bar")
+          .data(duplicates)
+        .enter().append("rect")
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d.Keyword); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.Frequency); })
+          .attr("height", function(d) { return height - y(d.Frequency); });
+
+    });
+};
+
+$(document).ready(function(){
+    $('#popup').popup({
+      scrolllock: true,
+      transition: 'all 0.3s',
+      setzindex: true,
+      beforeopen: function() { populatePopup(); },
+      closetransitionend: function(){ $('#popup').empty() }
+    });
+})

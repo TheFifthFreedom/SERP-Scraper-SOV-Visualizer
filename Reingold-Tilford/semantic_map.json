@@ -1,1841 +1,1083 @@
 {
+    "duplicate": false,
+    "average_monthly_search_volume": 368000,
+    "competition": 1.0,
+    "type": "origin",
     "children": [
         {
-            "type": "related_search",
-            "name": "cheesecake factory",
-            "competition": 0.02,
-            "average_monthly_search_volume": 1220000,
             "duplicate": false,
+            "average_monthly_search_volume": 8100,
+            "competition": 1.0,
+            "type": "related_search",
             "children": [
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "cheesecake factory nutrition",
                     "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 12100,
-                    "name": "cheesecake factory prices",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory coupons",
-                    "duplicate": false,
-                    "competition": 0.38
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory hours",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 3600,
-                    "name": "cheesecake factory cheesecake menu",
-                    "duplicate": false,
-                    "competition": 0.15
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 8100,
-                    "name": "cheesecake factory recipes",
-                    "duplicate": false,
-                    "competition": 0.2
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 301000,
-                    "name": "cheesecake recipe",
-                    "duplicate": true,
-                    "competition": 0.19
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 720,
-                    "name": "cheesecake factory reviews",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1220000,
-                    "name": "cheesecake factory",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 201000,
-                    "name": "cheesecake factory menu",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 2900,
-                    "name": "cheesecake factory nyc",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory coupons",
-                    "duplicate": true,
-                    "competition": 0.38
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 0,
-                    "name": "p. f. chang's china bis...",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 1830000,
-                    "name": "olive garden",
-                    "duplicate": false,
-                    "competition": 0.11
-                },
-                {
-                    "type": "people_also_search_for",
                     "average_monthly_search_volume": 33100,
-                    "name": "maggiano's little italy",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 246000,
-                    "name": "california pizza kitchen",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 1220000,
-                    "name": "red lobster",
-                    "duplicate": false,
-                    "competition": 0.15
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cheese types",
-            "competition": 0.06,
-            "average_monthly_search_volume": 5400,
-            "duplicate": false,
-            "children": [
-                {
+                    "name": "best electric toothbrush",
                     "type": "related_search",
-                    "average_monthly_search_volume": 70,
-                    "name": "cheese types a-z",
-                    "duplicate": false,
-                    "competition": 0.26
+                    "competition": 0.94
                 },
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese types alphabetical",
                     "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 90,
-                    "name": "cheese types list",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
+                    "name": "electric toothbrush reviews consumer reports",
                     "type": "related_search",
-                    "average_monthly_search_volume": 110,
-                    "name": "cheese types popular",
+                    "competition": 0.59
+                },
+                {
                     "duplicate": false,
-                    "competition": 0.11
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 50,
-                    "name": "common cheese types",
-                    "duplicate": false,
-                    "competition": 0.07
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese types and characteristics",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1600,
-                    "name": "cheese brands",
-                    "duplicate": false,
-                    "competition": 0.07
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 50,
-                    "name": "cheese types and taste",
-                    "duplicate": false,
-                    "competition": 0.03
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese types",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 10,
-                    "name": "cheese types subway",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 10,
-                    "name": "cheese types and flavors",
-                    "duplicate": false,
-                    "competition": 0.35
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese types soft",
-                    "duplicate": false,
-                    "competition": 0
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cheese urban dictionary",
-            "competition": 0.0,
-            "average_monthly_search_volume": 1000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 320,
-                    "name": "cheese slang",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "cheese drug",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese types",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese urban dictionary starcraft",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 720,
-                    "name": "cheesy urban dictionary",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "cottage cheese urban dictionary",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 90,
-                    "name": "cheese grater urban dictionary",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "from under cheese urban dictionary",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1000,
-                    "name": "cheese urban dictionary",
-                    "duplicate": true,
-                    "competition": 0.0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese urban dictionary starcraft",
-                    "duplicate": true,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese urban dictionary weed",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 260,
-                    "name": "cheese pizza urban dictionary",
-                    "duplicate": false,
-                    "competition": 0.01
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cheese drug",
-            "competition": 0.02,
-            "average_monthly_search_volume": 1300,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1000,
-                    "name": "strawberry quick drug",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 20,
-                    "name": "cheese drug symptoms",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 9900,
-                    "name": "bath salts drug",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese drug side effects",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 10,
-                    "name": "cheese drug info",
-                    "duplicate": false,
-                    "competition": 0.03
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese drug cocktail",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese drug urban dictionary",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese illegal drug",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1300,
-                    "name": "cheese drug",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese drug epidemic",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese drug side effects",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese drug reference",
-                    "duplicate": false,
-                    "competition": 0
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "how to make cheese",
-            "competition": 0.11,
-            "average_monthly_search_volume": 22200,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 6600,
-                    "name": "how to make mozzarella cheese",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 390,
-                    "name": "how to make american cheese",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "cheese making process",
-                    "duplicate": false,
-                    "competition": 0.16
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 480,
-                    "name": "how to make swiss cheese",
-                    "duplicate": false,
-                    "competition": 0.07
-                },
-                {
+                    "name": "sonicare reviews",
                     "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "how to make butter",
-                    "duplicate": false,
-                    "competition": 0.02
+                    "competition": 0.82
                 },
                 {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush ratings reviews",
                     "type": "related_search",
-                    "average_monthly_search_volume": 49500,
-                    "name": "rennet",
+                    "competition": 0.88
+                },
+                {
                     "duplicate": false,
-                    "competition": 0.29
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2900,
-                    "name": "how to make goat cheese",
-                    "duplicate": false,
-                    "competition": 0.09
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "how to make yogurt",
-                    "duplicate": false,
-                    "competition": 0.1
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 33100,
-                    "name": "how to make cheesecake",
-                    "duplicate": false,
-                    "competition": 0.17
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 22200,
-                    "name": "how to make cheese",
-                    "duplicate": true,
-                    "competition": 0.11
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 22200,
-                    "name": "how to make cheese sauce",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 2400,
-                    "name": "how to make cheese dip",
-                    "duplicate": false,
-                    "competition": 0.14
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cheese sauce",
-            "competition": 0.09,
-            "average_monthly_search_volume": 60500,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese sauce for pasta",
-                    "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 6600,
-                    "name": "nacho cheese sauce",
-                    "duplicate": false,
-                    "competition": 0.44
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "cheese sauce for mac and cheese",
-                    "duplicate": false,
-                    "competition": 0.09
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 33100,
-                    "name": "cheese sauce recipe",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2400,
-                    "name": "white cheese sauce",
-                    "duplicate": false,
-                    "competition": 0.09
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 3600,
-                    "name": "velveeta cheese sauce",
-                    "duplicate": false,
-                    "competition": 0.29
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese sauce for broccoli",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 4400,
-                    "name": "easy cheese sauce",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 60500,
-                    "name": "cheese sauce",
-                    "duplicate": true,
-                    "competition": 0.09
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1900,
-                    "name": "cheese sauce for nachos",
-                    "duplicate": false,
-                    "competition": 0.11
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese sauce for pasta",
-                    "duplicate": true,
-                    "competition": 0.04
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 590,
-                    "name": "cheese sauce for fries",
-                    "duplicate": false,
-                    "competition": 0.1
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cheese history",
-            "competition": 0.02,
-            "average_monthly_search_volume": 590,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "types of cheese",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese making history",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 10,
-                    "name": "italian cheese history",
-                    "duplicate": false,
-                    "competition": 0.06
-                },
-                {
+                    "name": "electric toothbrush consumer reviews",
                     "type": "related_search",
-                    "average_monthly_search_volume": 20,
-                    "name": "kraft cheese history",
+                    "competition": 0.78
+                },
+                {
                     "duplicate": false,
-                    "competition": 0.03
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 20,
-                    "name": "cheese history timeline",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese history facts",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 50,
-                    "name": "french cheese history",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 320,
-                    "name": "chuck e cheese history",
-                    "duplicate": false,
-                    "competition": 0.03
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 590,
-                    "name": "cheese history",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 30,
-                    "name": "cheese history facts",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 20,
-                    "name": "cheese history timeline",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cheese history in france",
-                    "duplicate": false,
-                    "competition": 0
-                }
-            ]
-        },
-        {
-            "type": "related_search",
-            "name": "cartoon cheese",
-            "competition": 0.01,
-            "average_monthly_search_volume": 1900,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 30,
-                    "name": "cartoon cheese pictures",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 320,
-                    "name": "cartoon cheeseburger",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 140,
-                    "name": "cartoon yogurt",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 720,
-                    "name": "cartoon milk",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 20,
-                    "name": "cartoon cheese images",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 10,
-                    "name": "cartoon character cheese",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "coloring cartoon cheese",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 10,
-                    "name": "cheese mascots",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1900,
-                    "name": "cartoon cheese",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 320,
-                    "name": "cartoon cheeseburger",
-                    "duplicate": true,
-                    "competition": 0.0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 20,
-                    "name": "cartoon cheese images",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "cartoon cheese steak",
-                    "duplicate": false,
-                    "competition": 0
-                }
-            ]
-        },
-        {
-            "type": "autocomplete_result",
-            "name": "cheesecake factory",
-            "competition": 0.02,
-            "average_monthly_search_volume": 1220000,
-            "duplicate": true,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "cheesecake factory nutrition",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 12100,
-                    "name": "cheesecake factory prices",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory coupons",
-                    "duplicate": false,
-                    "competition": 0.38
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory hours",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 3600,
-                    "name": "cheesecake factory cheesecake menu",
-                    "duplicate": false,
-                    "competition": 0.15
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 8100,
-                    "name": "cheesecake factory recipes",
-                    "duplicate": false,
-                    "competition": 0.2
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 301000,
-                    "name": "cheesecake recipe",
-                    "duplicate": true,
-                    "competition": 0.19
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 720,
-                    "name": "cheesecake factory reviews",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 1220000,
-                    "name": "cheesecake factory",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 201000,
-                    "name": "cheesecake factory menu",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 2900,
-                    "name": "cheesecake factory nyc",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheesecake factory coupons",
-                    "duplicate": true,
-                    "competition": 0.38
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 0,
-                    "name": "p. f. chang's china bis...",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 1830000,
-                    "name": "olive garden",
-                    "duplicate": false,
-                    "competition": 0.11
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 33100,
-                    "name": "maggiano's little italy",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 246000,
-                    "name": "california pizza kitchen",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 1220000,
-                    "name": "red lobster",
-                    "duplicate": false,
-                    "competition": 0.15
-                }
-            ]
-        },
-        {
-            "type": "autocomplete_result",
-            "name": "cheesecake recipe",
-            "competition": 0.19,
-            "average_monthly_search_volume": 301000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 33100,
-                    "name": "easy cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.28
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 3600,
-                    "name": "original cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.29
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "no bake cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.23
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 27100,
-                    "name": "strawberry cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.14
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 27100,
-                    "name": "oreo cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 14800,
-                    "name": "simple cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.21
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2900,
-                    "name": "cheesecake factory recipe",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 3600,
-                    "name": "plain cheesecake recipe",
-                    "duplicate": false,
-                    "competition": 0.19
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 301000,
-                    "name": "cheesecake recipe",
-                    "duplicate": true,
-                    "competition": 0.19
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheesecake recipe easy",
-                    "duplicate": false,
-                    "competition": 0.25
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 320,
-                    "name": "cheesecake recipe sour cream",
-                    "duplicate": false,
-                    "competition": 0.18
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 6600,
-                    "name": "cheesecake recipe no bake",
-                    "duplicate": false,
-                    "competition": 0.22
-                }
-            ]
-        },
-        {
-            "type": "autocomplete_result",
-            "name": "cheesecake factory menu",
-            "competition": 0.06,
-            "average_monthly_search_volume": 201000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 9900,
-                    "name": "cheesecake factory menu prices",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2400,
-                    "name": "cheesecake factory menu pdf",
-                    "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "cheesecake factory nutrition",
-                    "duplicate": true,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 390,
-                    "name": "cheesecake factory menu gluten free",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
+                    "name": "oral b electric toothbrush reviews",
                     "type": "related_search",
-                    "average_monthly_search_volume": 880,
-                    "name": "cheesecake factory menu calories",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 40500,
-                    "name": "cheesecake factory locations",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2900,
-                    "name": "cheesecake factory kids menu",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 590,
-                    "name": "cheesecake factory menu prices pdf",
-                    "duplicate": false,
-                    "competition": 0.2
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 201000,
-                    "name": "cheesecake factory menu",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 9900,
-                    "name": "cheesecake factory menu prices",
-                    "duplicate": true,
-                    "competition": 0.12
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 880,
-                    "name": "cheesecake factory menu calories",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 90,
-                    "name": "cheesecake factory menu brunch",
-                    "duplicate": false,
-                    "competition": 0.03
-                }
-            ]
-        },
-        {
-            "type": "autocomplete_result",
-            "name": "cheese",
-            "competition": 0.04,
-            "average_monthly_search_volume": 450000,
-            "duplicate": true,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1220000,
-                    "name": "cheesecake factory",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 5400,
-                    "name": "cheese types",
-                    "duplicate": true,
-                    "competition": 0.06
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1000,
-                    "name": "cheese urban dictionary",
-                    "duplicate": true,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "cheese drug",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "how to make cheese",
-                    "duplicate": true,
-                    "competition": 0.11
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 60500,
-                    "name": "cheese sauce",
-                    "duplicate": true,
-                    "competition": 0.09
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 590,
-                    "name": "cheese history",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1900,
-                    "name": "cartoon cheese",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 450000,
-                    "name": "cheese",
-                    "duplicate": true,
-                    "competition": 0.04
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 14800,
-                    "name": "cheese making",
-                    "duplicate": false,
-                    "competition": 0.67
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 9900,
-                    "name": "cheese recipes",
-                    "duplicate": false,
-                    "competition": 0.14
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 6600,
-                    "name": "cheese making supplies",
-                    "duplicate": false,
-                    "competition": 0.98
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 165000,
-                    "name": "mozzarella",
-                    "duplicate": true,
-                    "competition": 0.03
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 450000,
-                    "name": "milk",
-                    "duplicate": true,
-                    "competition": 0.03
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 201000,
-                    "name": "butter",
-                    "duplicate": true,
-                    "competition": 0.05
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 40500,
-                    "name": "parmigiano reggiano",
-                    "duplicate": true,
-                    "competition": 0.17
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 49500,
-                    "name": "cheddar cheese",
-                    "duplicate": true,
-                    "competition": 0.1
-                }
-            ]
-        },
-        {
-            "type": "people_also_search_for",
-            "name": "mozzarella",
-            "competition": 0.03,
-            "average_monthly_search_volume": 165000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 6600,
-                    "name": "mozzarella recipe",
-                    "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 390,
-                    "name": "mozzarella nutrition facts",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 210,
-                    "name": "mozzarella tomato basil appetizer",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 12100,
-                    "name": "mozzarella sticks recipe",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1000,
-                    "name": "mozzarella nutrition",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1900,
-                    "name": "mozzarella calories",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 260,
-                    "name": "mozzarella pronunciation",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "mozzarella cheese nutrition",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 27100,
-                    "name": "mozzarella cheese",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 12100,
-                    "name": "mozzarella sticks recipe",
-                    "duplicate": true,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 33100,
-                    "name": "mozzarella in carrozza",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 590,
-                    "name": "mozzarella en carozza",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 450000,
-                    "name": "cheese",
-                    "duplicate": true,
-                    "competition": 0.04
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 40500,
-                    "name": "parmigiano reggiano",
-                    "duplicate": true,
-                    "competition": 0.17
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 3350000,
-                    "name": "pizza",
-                    "duplicate": false,
-                    "competition": 0.29
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 49500,
-                    "name": "cheddar cheese",
-                    "duplicate": true,
-                    "competition": 0.1
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 12100,
-                    "name": "buffalo mozzarella",
-                    "duplicate": false,
-                    "competition": 0.08
-                }
-            ]
-        },
-        {
-            "type": "people_also_search_for",
-            "name": "milk",
-            "competition": 0.03,
-            "average_monthly_search_volume": 450000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 8100,
-                    "name": "milk nutrition facts",
-                    "duplicate": false,
-                    "competition": 0.11
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 74000,
-                    "name": "harvey milk",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 6600,
-                    "name": "benefits of milk",
-                    "duplicate": false,
-                    "competition": 0.1
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 6600,
-                    "name": "milk nutrition",
-                    "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 9900,
-                    "name": "milk studios",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 18100,
-                    "name": "milk movie",
-                    "duplicate": false,
-                    "competition": 0.13
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 8100,
-                    "name": "cow milk",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1900,
-                    "name": "milk brands",
-                    "duplicate": false,
-                    "competition": 0.17
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 50,
-                    "name": "milk (dairy product)",
-                    "duplicate": false,
-                    "competition": 0.22
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 30,
-                    "name": "milk (2008 film)",
-                    "duplicate": false,
-                    "competition": 0.05
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "harvey milk (former san francisco supervisor)",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 450000,
-                    "name": "milk",
-                    "duplicate": true,
-                    "competition": 0.03
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 49500,
-                    "name": "milk and honey",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 368000,
-                    "name": "milky chance",
-                    "duplicate": false,
-                    "competition": 0.14
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 9900,
-                    "name": "milk studios",
-                    "duplicate": true,
-                    "competition": 0.0
-                }
-            ]
-        },
-        {
-            "type": "people_also_search_for",
-            "name": "butter",
-            "competition": 0.05,
-            "average_monthly_search_volume": 201000,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 9900,
-                    "name": "butter movie",
-                    "duplicate": false,
-                    "competition": 0.17
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 4400,
-                    "name": "butter restaurant",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 8100,
-                    "name": "butter nail polish",
-                    "duplicate": false,
                     "competition": 1.0
                 },
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 1300,
-                    "name": "butter 2011",
                     "duplicate": false,
-                    "competition": 0.03
+                    "average_monthly_search_volume": 880,
+                    "name": "consumer reports reviews",
+                    "type": "related_search",
+                    "competition": 0.25
                 },
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 720,
-                    "name": "butter clothing",
                     "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush reviews 2011",
+                    "type": "related_search",
                     "competition": 0.36
                 },
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 4400,
-                    "name": "butter shoes",
-                    "duplicate": false,
-                    "competition": 0.84
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
                 },
                 {
-                    "type": "related_search",
+                    "duplicate": false,
                     "average_monthly_search_volume": 590,
-                    "name": "butter trailer",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2900,
-                    "name": "butter ingredients",
-                    "duplicate": false,
-                    "competition": 0.06
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 0,
-                    "name": "butter (restaurant company)",
-                    "duplicate": false,
-                    "competition": 0
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 30,
-                    "name": "butter (dairy product)",
-                    "duplicate": false,
-                    "competition": 0.1
-                },
-                {
-                    "type": "disambiguation_result",
-                    "average_monthly_search_volume": 50,
-                    "name": "butter (2011 film)",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
+                    "name": "electric toothbrush reviews 2014",
                     "type": "autocomplete_result",
-                    "average_monthly_search_volume": 135000,
-                    "name": "butternut squash recipes",
-                    "duplicate": false,
-                    "competition": 0.06
+                    "competition": 0.48
                 },
                 {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 201000,
-                    "name": "butternut squash soup",
                     "duplicate": false,
-                    "competition": 0.08
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 9900,
-                    "name": "butter nyc",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 6600,
-                    "name": "butternut ski",
-                    "duplicate": false,
-                    "competition": 0.01
-                }
-            ]
-        },
-        {
-            "type": "people_also_search_for",
-            "name": "parmigiano reggiano",
-            "competition": 0.17,
-            "average_monthly_search_volume": 40500,
-            "duplicate": false,
-            "children": [
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 210,
-                    "name": "parmigiano reggiano substitute",
-                    "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 210,
-                    "name": "parmigiano reggiano price",
-                    "duplicate": false,
-                    "competition": 0.87
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 170,
-                    "name": "parmigiano reggiano vs parmesan",
-                    "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 260,
-                    "name": "parmigiano reggiano recipes",
-                    "duplicate": false,
-                    "competition": 0.07
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 210,
-                    "name": "parmigiano reggiano rind",
-                    "duplicate": false,
-                    "competition": 0.04
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 110,
-                    "name": "parmigiano reggiano walmart",
-                    "duplicate": false,
-                    "competition": 0.27
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 40,
-                    "name": "parmigiano reggiano vs pecorino romano",
+                    "name": "electric toothbrush reviews 2015",
+                    "type": "autocomplete_result",
+                    "competition": 0.45
+                },
+                {
                     "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush reviews cnet",
+                    "type": "autocomplete_result",
+                    "competition": 0.46
+                }
+            ],
+            "name": "electric toothbrush reviews"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 880,
+            "competition": 0.93,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 301000,
+                    "name": "philips sonicare",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 11100000,
+                    "name": "costco",
+                    "type": "related_search",
                     "competition": 0.02
                 },
                 {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 135000,
+                    "name": "oral b electric toothbrush",
                     "type": "related_search",
-                    "average_monthly_search_volume": 0,
-                    "name": "parmigiano reggiano pronounce",
+                    "competition": 1.0
+                },
+                {
                     "duplicate": false,
+                    "average_monthly_search_volume": 140,
+                    "name": "philips flexcare r910",
+                    "type": "related_search",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 70,
+                    "name": "electric toothbrush ratings 2014",
+                    "type": "related_search",
+                    "competition": 0.57
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 30,
+                    "name": "electric toothbrush ratings consumer reports",
+                    "type": "related_search",
+                    "competition": 0.71
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush ratings",
+                    "type": "autocomplete_result",
+                    "competition": 0.93
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 0,
+                    "name": "electric toothbrush ratings 2015",
+                    "type": "autocomplete_result",
                     "competition": 0
                 },
                 {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 40500,
-                    "name": "parmigiano reggiano",
                     "duplicate": true,
-                    "competition": 0.17
+                    "average_monthly_search_volume": 70,
+                    "name": "electric toothbrush ratings 2014",
+                    "type": "autocomplete_result",
+                    "competition": 0.57
                 },
                 {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 30,
+                    "name": "electric toothbrush ratings consumer reports",
                     "type": "autocomplete_result",
-                    "average_monthly_search_volume": 2900,
-                    "name": "parmigiano reggiano cheese",
+                    "competition": 0.71
+                }
+            ],
+            "name": "electric toothbrush ratings"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 880,
+            "competition": 0.75,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
                     "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "sonic toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.85
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 170,
+                    "name": "oral b electric toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.72
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush walmart",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 260,
+                    "name": "electric toothbrush costco",
+                    "type": "related_search",
+                    "competition": 0.9
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 37200000,
+                    "name": "walmart",
+                    "type": "related_search",
+                    "competition": 0.02
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 301000,
+                    "name": "philips sonicare",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush amazon",
+                    "type": "autocomplete_result",
+                    "competition": 0.75
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 0,
+                    "name": "electric toothbrush amazon oral b",
+                    "type": "autocomplete_result",
+                    "competition": 0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 40,
+                    "name": "electric toothbrush amazon uk",
+                    "type": "autocomplete_result",
+                    "competition": 0.35
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush amazon india",
+                    "type": "autocomplete_result",
+                    "competition": 0.96
+                }
+            ],
+            "name": "electric toothbrush amazon"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 2900,
+            "competition": 1.0,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare coupon",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 5400,
+                    "name": "electric toothbrush oral b",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare vs oral b",
+                    "type": "related_search",
+                    "competition": 0.21
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "sonicare elite 7300 electric toothbrush",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 110,
+                    "name": "electric toothbrush waterpik",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "consumer reports sonicare",
+                    "type": "related_search",
+                    "competition": 0.24
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 2900,
+                    "name": "electric toothbrush sonicare",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare coupon",
+                    "type": "autocomplete_result",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare vs oral b",
+                    "type": "autocomplete_result",
+                    "competition": 0.21
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush sonicare reviews",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                }
+            ],
+            "name": "electric toothbrush sonicare"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 320,
+            "competition": 0.94,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "electric toothbrush target",
+                    "type": "related_search",
+                    "competition": 0.9
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 3600,
+                    "name": "electric toothbrush review",
+                    "type": "related_search",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush coupons",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "sonic toothbrush walmart",
+                    "type": "related_search",
+                    "competition": 0.95
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.75
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "oral b walmart",
+                    "type": "related_search",
+                    "competition": 0.83
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "braun walmart",
+                    "type": "related_search",
+                    "competition": 0.88
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 480,
+                    "name": "boots walmart",
+                    "type": "related_search",
+                    "competition": 0.91
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush walmart",
+                    "type": "autocomplete_result",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush walmart canada",
+                    "type": "autocomplete_result",
+                    "competition": 0.44
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "sonicare electric toothbrush walmart",
+                    "type": "autocomplete_result",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "sonic electric toothbrush walmart",
+                    "type": "autocomplete_result",
+                    "competition": 0.85
+                }
+            ],
+            "name": "electric toothbrush walmart"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 30,
+            "competition": 0.38,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 70,
+                    "name": "sonicare vs oral b reviews",
+                    "type": "related_search",
                     "competition": 0.27
                 },
                 {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 30,
+                    "name": "best electric toothbrush 2012",
+                    "type": "related_search",
+                    "competition": 0.67
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 320,
+                    "name": "top rated electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.98
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 110,
+                    "name": "power toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 1000,
+                    "name": "sonicare toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 50,
+                    "name": "sonicare diamondclean vs oral b 5000",
+                    "type": "related_search",
+                    "competition": 0.24
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 390,
+                    "name": "philips sonicare vs oral b",
+                    "type": "related_search",
+                    "competition": 0.07
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 30,
+                    "name": "electric toothbrush reviews 2012",
                     "type": "autocomplete_result",
-                    "average_monthly_search_volume": 210,
-                    "name": "parmigiano reggiano price",
-                    "duplicate": true,
-                    "competition": 0.87
+                    "competition": 0.38
                 },
                 {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush reviews 2012 uk",
                     "type": "autocomplete_result",
-                    "average_monthly_search_volume": 210,
-                    "name": "parmigiano reggiano rind",
-                    "duplicate": true,
-                    "competition": 0.04
+                    "competition": 0
                 },
                 {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 450000,
-                    "name": "cheese",
-                    "duplicate": true,
-                    "competition": 0.04
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 165000,
-                    "name": "mozzarella",
-                    "duplicate": true,
-                    "competition": 0.03
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 60500,
-                    "name": "grana padano",
                     "duplicate": false,
-                    "competition": 0.03
+                    "average_monthly_search_volume": 0,
+                    "name": "electric toothbrush reviews 2012 australia",
+                    "type": "autocomplete_result",
+                    "competition": 0
                 },
                 {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 40500,
-                    "name": "parmigiana",
                     "duplicate": false,
-                    "competition": 0.0
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 246000,
-                    "name": "pesto",
-                    "duplicate": false,
-                    "competition": 0.05
+                    "average_monthly_search_volume": 0,
+                    "name": "electric toothbrush reviews 2012 consumer reports",
+                    "type": "autocomplete_result",
+                    "competition": 0
                 }
-            ]
+            ],
+            "name": "electric toothbrush reviews 2012"
         },
         {
-            "type": "people_also_search_for",
-            "name": "cheddar cheese",
-            "competition": 0.1,
-            "average_monthly_search_volume": 49500,
             "duplicate": false,
+            "average_monthly_search_volume": 135000,
+            "competition": 1.0,
+            "type": "related_search",
             "children": [
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 27100,
-                    "name": "mozzarella cheese",
-                    "duplicate": true,
-                    "competition": 0.12
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 170,
-                    "name": "cheddar cheese brands",
                     "duplicate": false,
-                    "competition": 0.18
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 22200,
-                    "name": "types of cheese",
-                    "duplicate": true,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2900,
-                    "name": "how to make cheddar cheese",
-                    "duplicate": false,
-                    "competition": 0.02
-                },
-                {
-                    "type": "related_search",
                     "average_monthly_search_volume": 390,
-                    "name": "cheddar cheese ingredients",
-                    "duplicate": false,
-                    "competition": 0.12
-                },
-                {
+                    "name": "oral b electric toothbrush coupon",
                     "type": "related_search",
-                    "average_monthly_search_volume": 70,
-                    "name": "cheddar cheese history",
-                    "duplicate": false,
-                    "competition": 0.08
+                    "competition": 0.95
                 },
                 {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 260,
+                    "name": "oral b electric toothbrush costco",
                     "type": "related_search",
-                    "average_monthly_search_volume": 1000,
-                    "name": "cheddar cheese recipe",
-                    "duplicate": false,
-                    "competition": 0.07
+                    "competition": 0.97
                 },
                 {
-                    "type": "related_search",
-                    "average_monthly_search_volume": 2400,
-                    "name": "cheddar cheese nutrition",
-                    "duplicate": false,
-                    "competition": 0.01
-                },
-                {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 49500,
-                    "name": "cheddar cheese",
                     "duplicate": true,
-                    "competition": 0.1
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
                 },
                 {
-                    "type": "autocomplete_result",
-                    "average_monthly_search_volume": 4400,
-                    "name": "cheddar cheese sauce",
                     "duplicate": false,
-                    "competition": 0.07
+                    "average_monthly_search_volume": 70,
+                    "name": "oral b electric toothbrush rebate",
+                    "type": "related_search",
+                    "competition": 0.71
                 },
                 {
-                    "type": "autocomplete_result",
+                    "duplicate": false,
+                    "average_monthly_search_volume": 260,
+                    "name": "oral b professional electric toothbrush",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
                     "average_monthly_search_volume": 590,
-                    "name": "cheddar cheese fondue",
+                    "name": "oral b electric toothbrush review",
+                    "type": "related_search",
+                    "competition": 0.99
+                },
+                {
                     "duplicate": false,
+                    "average_monthly_search_volume": 210,
+                    "name": "oral b sonic electric toothbrush",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 260,
+                    "name": "oral b pulsonic electric toothbrush",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 135000,
+                    "name": "oral b electric toothbrush",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 390,
+                    "name": "oral b electric toothbrush coupon",
+                    "type": "autocomplete_result",
+                    "competition": 0.95
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 390,
+                    "name": "oral b electric toothbrush reviews",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 5400,
+                    "name": "oral b electric toothbrush heads",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                }
+            ],
+            "name": "oral b electric toothbrush"
+        },
+        {
+            "duplicate": false,
+            "average_monthly_search_volume": 4400,
+            "competition": 1.0,
+            "type": "related_search",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 480,
+                    "name": "electric toothbrush for toddlers",
+                    "type": "related_search",
+                    "competition": 0.98
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids with timer",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids reviews",
+                    "type": "related_search",
+                    "competition": 0.95
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids age",
+                    "type": "related_search",
+                    "competition": 0.93
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 12100,
+                    "name": "sonicare kids",
+                    "type": "related_search",
+                    "competition": 0.98
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 4400,
+                    "name": "oral b kids",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 40500,
+                    "name": "philips sonicare hx6311/07 rechargeable electric toothbrush for kids",
+                    "type": "related_search",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 4400,
+                    "name": "electric toothbrush for kids",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                }
+            ],
+            "name": "electric toothbrush for kids"
+        },
+        {
+            "duplicate": true,
+            "average_monthly_search_volume": 368000,
+            "competition": 1.0,
+            "type": "autocomplete_result",
+            "children": [
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush ratings",
+                    "type": "related_search",
+                    "competition": 0.93
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.75
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 2900,
+                    "name": "electric toothbrush sonicare",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush walmart",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 30,
+                    "name": "electric toothbrush reviews 2012",
+                    "type": "related_search",
+                    "competition": 0.38
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 135000,
+                    "name": "oral b electric toothbrush",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 4400,
+                    "name": "electric toothbrush for kids",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush walmart",
+                    "type": "autocomplete_result",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 368000,
+                    "name": "electric toothbrush",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush amazon",
+                    "type": "autocomplete_result",
+                    "competition": 0.75
+                }
+            ],
+            "name": "electric toothbrush"
+        },
+        {
+            "duplicate": true,
+            "average_monthly_search_volume": 8100,
+            "competition": 1.0,
+            "type": "autocomplete_result",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "electric toothbrush reviews consumer reports",
+                    "type": "related_search",
+                    "competition": 0.59
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 480,
+                    "name": "sonicare reviews",
+                    "type": "related_search",
+                    "competition": 0.82
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush ratings reviews",
+                    "type": "related_search",
+                    "competition": 0.88
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush consumer reviews",
+                    "type": "related_search",
+                    "competition": 0.78
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 390,
+                    "name": "oral b electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 880,
+                    "name": "consumer reports reviews",
+                    "type": "related_search",
+                    "competition": 0.25
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush reviews 2011",
+                    "type": "related_search",
+                    "competition": 0.36
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 590,
+                    "name": "electric toothbrush reviews 2014",
+                    "type": "autocomplete_result",
+                    "competition": 0.48
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 40,
+                    "name": "electric toothbrush reviews 2015",
+                    "type": "autocomplete_result",
+                    "competition": 0.45
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush reviews cnet",
+                    "type": "autocomplete_result",
+                    "competition": 0.46
+                }
+            ],
+            "name": "electric toothbrush reviews"
+        },
+        {
+            "duplicate": true,
+            "average_monthly_search_volume": 4400,
+            "competition": 1.0,
+            "type": "autocomplete_result",
+            "children": [
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 480,
+                    "name": "electric toothbrush for toddlers",
+                    "type": "related_search",
+                    "competition": 0.98
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids with timer",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids reviews",
+                    "type": "related_search",
+                    "competition": 0.95
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 20,
+                    "name": "electric toothbrush for kids age",
+                    "type": "related_search",
+                    "competition": 0.93
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 12100,
+                    "name": "sonicare kids",
+                    "type": "related_search",
+                    "competition": 0.98
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 4400,
+                    "name": "oral b kids",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 40500,
+                    "name": "philips sonicare hx6311/07 rechargeable electric toothbrush for kids",
+                    "type": "related_search",
+                    "competition": 0.96
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 4400,
+                    "name": "electric toothbrush for kids",
+                    "type": "autocomplete_result",
+                    "competition": 1.0
+                }
+            ],
+            "name": "electric toothbrush for kids"
+        },
+        {
+            "duplicate": true,
+            "average_monthly_search_volume": 880,
+            "competition": 0.75,
+            "type": "autocomplete_result",
+            "children": [
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 8100,
+                    "name": "electric toothbrush reviews",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 33100,
+                    "name": "best electric toothbrush",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 90,
+                    "name": "sonic toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.85
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 170,
+                    "name": "oral b electric toothbrush amazon",
+                    "type": "related_search",
+                    "competition": 0.72
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 320,
+                    "name": "electric toothbrush walmart",
+                    "type": "related_search",
+                    "competition": 0.94
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 260,
+                    "name": "electric toothbrush costco",
+                    "type": "related_search",
+                    "competition": 0.9
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 37200000,
+                    "name": "walmart",
+                    "type": "related_search",
                     "competition": 0.02
                 },
                 {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 301000,
+                    "name": "philips sonicare",
+                    "type": "related_search",
+                    "competition": 1.0
+                },
+                {
+                    "duplicate": true,
+                    "average_monthly_search_volume": 880,
+                    "name": "electric toothbrush amazon",
                     "type": "autocomplete_result",
-                    "average_monthly_search_volume": 2400,
-                    "name": "cheddar cheese nutrition",
-                    "duplicate": true,
-                    "competition": 0.01
+                    "competition": 0.75
                 },
                 {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 450000,
-                    "name": "cheese",
-                    "duplicate": true,
-                    "competition": 0.04
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 165000,
-                    "name": "mozzarella",
-                    "duplicate": true,
-                    "competition": 0.03
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 165000,
-                    "name": "macaroni and cheese",
                     "duplicate": false,
-                    "competition": 0.28
+                    "average_monthly_search_volume": 0,
+                    "name": "electric toothbrush amazon oral b",
+                    "type": "autocomplete_result",
+                    "competition": 0
                 },
                 {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 40500,
-                    "name": "parmigiano reggiano",
-                    "duplicate": true,
-                    "competition": 0.17
-                },
-                {
-                    "type": "people_also_search_for",
-                    "average_monthly_search_volume": 22200,
-                    "name": "american cheese",
                     "duplicate": false,
-                    "competition": 0.05
+                    "average_monthly_search_volume": 40,
+                    "name": "electric toothbrush amazon uk",
+                    "type": "autocomplete_result",
+                    "competition": 0.35
+                },
+                {
+                    "duplicate": false,
+                    "average_monthly_search_volume": 10,
+                    "name": "electric toothbrush amazon india",
+                    "type": "autocomplete_result",
+                    "competition": 0.96
                 }
-            ]
+            ],
+            "name": "electric toothbrush amazon"
         }
     ],
-    "type": "origin",
-    "name": "cheese",
-    "average_monthly_search_volume": 450000,
-    "competition": 0.04
+    "name": "electric toothbrush"
 }

@@ -9,7 +9,7 @@ if __name__ == '__main__':
     config = {
         'SCRAPING': {
             'use_own_ip': 'True',
-            'keywords': 'cheese',
+            'keywords': 'electric toothbrush',
             'search_engines': 'google',
             'num_workers': 1
         },
