@@ -541,11 +541,17 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
 
     function returnSanitized(node) {
         var sanNode = {};
+        sanNode.node_id = node.node_id;
         sanNode.name = node.name;
         sanNode.type = node.type;
         sanNode.duplicate = node.duplicate;
         sanNode.average_monthly_search_volume = node.average_monthly_search_volume;
         sanNode.competition = node.competition;
+        sanNode.image_results = node.image_results;
+        sanNode.image_mega_block = node.image_mega_block;
+        sanNode.map_result = node.map_result;
+        sanNode.answer_box = node.answer_box;
+        sanNode.knowledge_graph = node.knowledge_graph;
         sanNode.children = [];
         if (node.children) {
             node.children.forEach(function (child, index, array) {

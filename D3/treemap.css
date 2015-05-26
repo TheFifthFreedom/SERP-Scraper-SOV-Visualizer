@@ -1,0 +1,96 @@
+/* Treemap */
+
+svg {
+  font: 10px sans-serif;
+}
+
+body {
+  background: #fcfcfa;
+  color: #333;
+  font-family: "PT Sans", sans-serif;
+  margin: 1em auto 4em auto;
+  position: relative;
+  width: 1260px;
+}
+
+#treemap {
+  width: 960px;
+  height: 500px;
+  float: left;
+  background: #ddd;
+}
+
+aside {
+  position: absolute;
+  top: 630px;
+}
+
+select {
+  position: relative;
+  top: 120px;
+}
+
+text {
+  pointer-events: none;
+}
+
+.grandparent text {
+  font-weight: bold;
+}
+
+rect {
+  fill: none;
+  stroke: #fff;
+}
+
+rect.parent,
+.grandparent rect {
+  stroke-width: 2px;
+}
+
+.grandparent rect {
+  fill: orange;
+}
+
+.grandparent:hover rect {
+  fill: #ee9700;
+}
+
+.children rect.parent,
+.grandparent rect {
+  cursor: pointer;
+}
+
+.children rect.parent {
+  fill: #bbb;
+  fill-opacity: .5;
+}
+
+.children:hover rect.child {
+  fill: #bbb;
+}
+
+/* Indented Tree */
+#indentedTree {
+    float: right;
+}
+
+.node rect {
+  cursor: pointer;
+  /*fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;*/
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+path.link {
+  fill: none;
+  /*stroke: #9ecae1;*/
+  stroke: #ddd;
+  stroke-width: 1.5px;
+}
