@@ -76,7 +76,7 @@ curlyBracketSvg.append("text")
     .text("Volume:");
 
 curlyBracketSvg.append("text")
-    .attr("x", width/6)
+    .attr("x", width/6 + 30)
     .attr("y", 50)
     .attr("font-size", "15px")
     .text("Maps:");
@@ -110,8 +110,13 @@ var curlyBracketVolumeText = curlyBracketSvg.append("text")
     .attr("y", 70)
     .attr("font-size", "15px");
 
+var curlyBracketVolumePercentageText = curlyBracketSvg.append("text")
+    .attr("x", 0)
+    .attr("y", 85)
+    .attr("font-size", "15px");
+
 var curlyBracketMapsText = curlyBracketSvg.append("text")
-    .attr("x", width/6)
+    .attr("x", width/6 + 30)
     .attr("y", 70)
     .attr("font-size", "15px");
 
@@ -161,6 +166,7 @@ var indentedTreeFilter = false;
 // Outlier-detection
 var searchVolumes = [], // List of all search volumes for interquartile range
     sumSearchVolumes = 0, // Sum of all search volumes for standard deviation
+    sumSearchVolumesNoDuplicates = 0, // Sum of all search volumes used in the treemap legend
     sumSearchVolumesSquared = 0, // Sum of all search volumes squared for standard deviation
     length = 0, // Search volume count
     thresholds,
@@ -190,6 +196,8 @@ d3.json("semantic_map.json", function(root) {
     // It will also gather all the search volume values for
     // outlier detection which we'll get to in a second
     var sanRoot = returnSanitized(root);
+    console.log(sumSearchVolumes);
+    console.log(sumSearchVolumesNoDuplicates);
 
     // We now have what we need to compute the standard deviation
     // and the interquartile range - both of which will help us find
@@ -345,6 +353,7 @@ d3.json("semantic_map.json", function(root) {
           .call(text);
 
       curlyBracketVolumeText.text(totalSearchVolume);
+      curlyBracketVolumePercentageText.text("(" + Math.round(((totalSearchVolume / sumSearchVolumesNoDuplicates)*100)*1000)/1000 + "% of " + sumSearchVolumesNoDuplicates + ")");
       curlyBracketMapsText.text(totalMaps);
       curlyBracketImagesText.text(totalImages);
       curlyBracketImageBlocksText.text(totalImageBlocks);
@@ -440,6 +449,7 @@ d3.json("semantic_map.json", function(root) {
         sanNode.knowledge_graph = node.knowledge_graph;
 
         sumSearchVolumes += node.average_monthly_search_volume;
+        if (!node.duplicate) {sumSearchVolumesNoDuplicates += node.average_monthly_search_volume;}
         sumSearchVolumesSquared += (node.average_monthly_search_volume * node.average_monthly_search_volume);
         searchVolumes.push(node.average_monthly_search_volume);
         length += 1;

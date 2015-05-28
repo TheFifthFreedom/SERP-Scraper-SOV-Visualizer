@@ -639,6 +639,9 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
                     if (d.target.duplicate == true && d.target.hasOwnProperty('children') == false && d.target.hasOwnProperty('_children') == false) {return true;}
                     else {return false;}
                 }).attr('class', function(){return this.getAttribute('class') + ' hidden';});
+
+                // Hide bar chart
+                $('.duplicatesMiniChart').hide();
             }
             else {
                 nodes.filter(function(d) {
@@ -655,6 +658,9 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
                     if (d.target.duplicate == true && d.target.hasOwnProperty('children') == false && d.target.hasOwnProperty('_children') == false) {return true;}
                     else {return false;}
                 }).attr('class', function(){return this.getAttribute('class').replace(' hidden', '');});
+
+                // Show bar chart
+                $('.duplicatesMiniChart').show();
             }
         });
 
@@ -679,10 +685,21 @@ treeJSON = d3.json("semantic_map.json", function(error, treeData) {
         .ticks(10);
 
     var barChart = baseSvg.append("g")
+        .attr("class", "duplicatesMiniChart")
+        .attr("transform", "translate(" + margin.left + "," + (viewerHeight - 250) + ")");
+
+    // Clickable overlay
+    baseSvg.append('rect')
+        .attr('class', 'duplicatesMiniChart')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('fill', 'none')
+        .attr('pointer-events', 'all')
         .attr("transform", "translate(" + margin.left + "," + (viewerHeight - 250) + ")")
+        .attr('cursor', 'pointer')
         .on("click", function(){
             $('#popup').popup('show');
-        });
+        })
 
     d3.csv("duplicates.csv", function(error, data) {
       // Transposing the duplicates data: we want to map the keyword count per frequency
